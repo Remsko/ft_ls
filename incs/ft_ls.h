@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:28:28 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/20 13:40:05 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/20 18:40:03 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 # include "libft.h"
 # include "types.h"
 # include "proto.h"
+#   include <stdio.h>
 
 #endif

@@ -7,6 +7,8 @@ LIBFT = libft/libft.a
 
 SRC_PATH = srcs/
 SRC_NAME = main.c \
+			process_entry.c \
+			parser_entry.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 
