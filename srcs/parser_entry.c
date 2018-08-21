@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 18:19:40 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/20 18:47:31 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/21 09:56:21 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ static void get_options(t_options *opt, char *arg)
     while (*arg != '\0')
     {
         if (*arg == 'l')
-            opt->l = TRUE;
+            opt->flags |= 1;
         else if (*arg == 'R')
-            opt->R = TRUE;
+            opt->flags |= 1 << 1;
         else if (*arg == 'a')
-            opt->a = TRUE;
+            opt->flags |= 1 << 2;
         else if (*arg == 'r')
-            opt->r = TRUE;
+            opt->flags |= 1 << 3;
         else if (*arg == 't')
-            opt->t = TRUE;
+            opt->flags |= 1 << 4;
         ++arg;
     }
 }
