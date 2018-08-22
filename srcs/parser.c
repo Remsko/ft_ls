@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_entry.c                                     :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/20 18:19:40 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/21 09:56:21 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/08/22 12:41:18 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/08/22 13:01:26 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static void get_options(t_options *opt, char *arg)
+static t_bool get_options(t_options *opt, char *arg)
 {
     while (*arg != '\0')
     {
@@ -26,21 +26,38 @@ static void get_options(t_options *opt, char *arg)
             opt->flags |= 1 << 3;
         else if (*arg == 't')
             opt->flags |= 1 << 4;
+        else
+        {
+            opt->error = *arg;
+            return (FALSE);
+        }
         ++arg;
     }
+    return (TRUE);
 }
 
-void parser_entry(char **argv, t_options *opt)
+t_bool parser(char **argv, t_options *opt)
 {
-
     while (*argv != NULL)
     {
-        if (*argv[0] == '-')
+        if (**argv == '-')
         {
-            get_options(opt, *argv);
+            if (*(*argv + 1) == '-')
+            {
+                if (*(*argv + 2) != '\0')
+                {
+                    opt->error = '-';
+                    return (FALSE);
+                }
+                else
+                    break;
+            }
+            else if (get_options(opt, *argv + 1) == FALSE)
+                return (FALSE);
         }
         else
             break;
         ++argv;
     }
+    return (TRUE);
 }
