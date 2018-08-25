@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_entry.c                                     :+:      :+:    :+:   */
+/*   new_object.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/20 18:19:40 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/20 18:20:20 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/08/25 23:08:51 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/08/25 23:11:14 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void    process_entry(t_options *opt)
+t_object    *new_object(struct dirent *dirent)
 {
-    (void)opt;
+    t_object *new;
+
+    if ((new = (t_object *)malloc(sizeof(t_object))) != NULL)
+    {
+        new->dirent = dirent;
+        new->sub = NULL;
+    }
+    return (new);
 }

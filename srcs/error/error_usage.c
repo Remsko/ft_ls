@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   types.h                                            :+:      :+:    :+:   */
+/*   error_usage.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/20 13:30:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/25 23:10:36 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/08/25 19:43:30 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/08/25 19:44:33 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPES_H
-# define TYPES_H
+#include "ft_ls.h"
 
-# include "ft_ls.h"
-
-typedef struct  s_options
+void    error_usage(char c)
 {
-    char            **targets;
-    unsigned char   flags;
-    char            error;
-}               t_options;
-
-typedef struct  s_object
-{
-    struct dirent   *dirent;
-    t_slist         *sub;
-}               t_object;
-
-#endif
+	ft_putstr("ft_ls: illegal option -- ");
+	ft_putchar(c);
+	ft_putstr("\nusage: ./ft_ls [-lRart] [file ...]\n");
+}

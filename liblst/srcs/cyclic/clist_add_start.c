@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   types.h                                            :+:      :+:    :+:   */
+/*   clist_add_start.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/20 13:30:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/25 23:10:36 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/08/17 16:17:25 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/08/17 16:21:15 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPES_H
-# define TYPES_H
+#include "liblst.h"
 
-# include "ft_ls.h"
-
-typedef struct  s_options
+inline void clist_add_start(t_clist **head, t_clist *new)
 {
-    char            **targets;
-    unsigned char   flags;
-    char            error;
-}               t_options;
-
-typedef struct  s_object
-{
-    struct dirent   *dirent;
-    t_slist         *sub;
-}               t_object;
-
-#endif
+	if (head != NULL && new != NULL)
+	{
+		if (*head != NULL)
+		{
+			new->prev = (*head)->prev;
+			(*head)->prev = new;
+			new->next = *head;
+		}
+		*head = new;
+	}
+}

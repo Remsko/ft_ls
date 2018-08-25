@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   types.h                                            :+:      :+:    :+:   */
+/*   error_directory.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/20 13:30:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/25 23:10:36 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/08/25 22:32:51 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/08/25 22:39:57 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPES_H
-# define TYPES_H
+#include "ft_ls.h"
 
-# include "ft_ls.h"
-
-typedef struct  s_options
+void    error_directory(char *dir)
 {
-    char            **targets;
-    unsigned char   flags;
-    char            error;
-}               t_options;
-
-typedef struct  s_object
-{
-    struct dirent   *dirent;
-    t_slist         *sub;
-}               t_object;
-
-#endif
+    ft_putstr("ls: cannot access");
+    ft_putstr(dir);
+    ft_putstr(": No such file or directory\n");
+}

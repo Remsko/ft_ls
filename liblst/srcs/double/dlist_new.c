@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   types.h                                            :+:      :+:    :+:   */
+/*   dlist_new.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/20 13:30:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/25 23:10:36 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/06/19 18:52:08 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/06/19 19:45:47 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPES_H
-# define TYPES_H
+#include "liblst.h"
 
-# include "ft_ls.h"
-
-typedef struct  s_options
+inline t_dlist	*dlist_new(void *content)
 {
-    char            **targets;
-    unsigned char   flags;
-    char            error;
-}               t_options;
+	t_dlist *new;
 
-typedef struct  s_object
-{
-    struct dirent   *dirent;
-    t_slist         *sub;
-}               t_object;
-
-#endif
+	if ((new = (t_dlist *)malloc(sizeof(t_dlist))) != NULL)
+		dlist_init(new, content);
+	return (new);
+}

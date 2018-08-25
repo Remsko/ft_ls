@@ -1,31 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   types.h                                            :+:      :+:    :+:   */
+/*   display_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/20 13:30:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/25 23:10:36 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/08/25 20:58:58 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/08/25 20:58:59 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPES_H
-# define TYPES_H
+#include "ft_ls.h"
 
-# include "ft_ls.h"
-
-typedef struct  s_options
+void    display_list()
 {
-    char            **targets;
-    unsigned char   flags;
-    char            error;
-}               t_options;
-
-typedef struct  s_object
-{
-    struct dirent   *dirent;
-    t_slist         *sub;
-}               t_object;
-
-#endif
+}

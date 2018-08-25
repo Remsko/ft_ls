@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   types.h                                            :+:      :+:    :+:   */
+/*   clist_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/20 13:30:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/25 23:10:36 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/06/19 19:47:32 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/08/17 16:17:33 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPES_H
-# define TYPES_H
+#include "liblst.h"
 
-# include "ft_ls.h"
-
-typedef struct  s_options
+void    clist_init(t_clist *clst, void *content)
 {
-    char            **targets;
-    unsigned char   flags;
-    char            error;
-}               t_options;
-
-typedef struct  s_object
-{
-    struct dirent   *dirent;
-    t_slist         *sub;
-}               t_object;
-
-#endif
+	clst->next = clst;
+	clst->prev = clst;
+	clst->content = content;
+}

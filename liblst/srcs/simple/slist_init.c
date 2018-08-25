@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.h                                            :+:      :+:    :+:   */
+/*   slist_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/20 13:28:28 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/25 21:34:42 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/07/29 14:54:35 by marvin            #+#    #+#             */
+/*   Updated: 2018/07/29 14:54:35 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LS_H
-# define FT_LS_H
+#include "liblst.h"
 
-# include "dirent.h"
-# include "libft.h"
-# include "liblst.h"
-# include "types.h"
-# include "proto.h"
-#   include <stdio.h>
-
-#endif
+inline void	slist_init(t_slist *lst, void *content)
+{
+	if (lst != NULL)
+		lst->next = NULL;
+	lst->content = content;
+}

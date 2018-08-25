@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   types.h                                            :+:      :+:    :+:   */
+/*   clist_delete.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/20 13:30:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/25 23:10:36 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/08/17 16:22:54 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/08/17 16:39:12 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPES_H
-# define TYPES_H
+#include "liblst.h"
 
-# include "ft_ls.h"
-
-typedef struct  s_options
+void    clist_delete(t_clist **head, void (*del)(void *))
 {
-    char            **targets;
-    unsigned char   flags;
-    char            error;
-}               t_options;
+	t_clist *tmp;
+	t_clist *clst;
 
-typedef struct  s_object
-{
-    struct dirent   *dirent;
-    t_slist         *sub;
-}               t_object;
-
-#endif
+	clst = *head;
+	if (head != NULL && del != NULL)
+	{
+		while (clst->next != *head)
+		{
+			tmp = clst->next;
+			del(clst->content);
+			free(clst);
+			clst = tmp;
+		}
+		*head = NULL;
+	}
+}
