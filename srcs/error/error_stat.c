@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_filling.c                                  :+:      :+:    :+:   */
+/*   error_stat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/25 20:51:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/26 22:16:32 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/08/26 19:07:35 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/08/26 19:09:15 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void    process_filling(t_slist **list, t_options *opt)
+void    error_stat()
 {
-    (void)list;
-    (void)opt;
+    ft_putstr("ft_ls: ");
+    perror("stat");
+    exit(EXIT_FAILURE);
 }

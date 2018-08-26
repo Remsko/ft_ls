@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:28:19 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/25 21:43:03 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/26 13:37:17 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int main(int ac, char **av)
 {
+	t_slist		*list;
 	t_options	opt;
 
+	list = NULL;
 	ft_bzero(&opt, sizeof(t_options));
 	if (ac > 1)
 	{
@@ -25,7 +27,7 @@ int main(int ac, char **av)
 			return (1);
 		}
 	}
-	process_filling();
+	process_filling(&list, &opt);
 	display_list();
 
 	printf("option l = %d\n", ((opt.flags & 1) > 0));

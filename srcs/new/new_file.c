@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_filling.c                                  :+:      :+:    :+:   */
+/*   new_file.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/25 20:51:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/26 22:16:32 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/08/26 20:37:55 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/08/26 21:15:18 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void    process_filling(t_slist **list, t_options *opt)
+t_file    *new_file(struct dirent *dirent)
 {
-    (void)list;
-    (void)opt;
+    t_file *new;
+
+    if ((new = (t_file *)malloc(sizeof(t_file))) != NULL)
+    {
+        new->dirent = dirent;
+        new->sub = NULL;
+    }
+    return (new);
 }

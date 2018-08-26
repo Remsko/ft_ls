@@ -16,7 +16,15 @@ SRC_NAME = main.c \
 			error/error_usage.c \
 			error/error_malloc.c \
 			error/error_directory.c \
-			new/new_object.c \
+			error/error_stat.c \
+			infos/infos_gid.c \
+			infos/infos_uid.c \
+			infos/infos_mode.c \
+			infos/infos_permi.c \
+			infos/infos_time.c \
+			infos/infos_type.c \
+			new/new_infos.c \
+			new/new_file.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 
@@ -43,6 +51,7 @@ $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)process
 	mkdir -p $(OBJ_PATH)display
 	mkdir -p $(OBJ_PATH)new
+	mkdir -p $(OBJ_PATH)infos
 
 $(NAME): $(LIBLST) $(LIBFT) $(OBJ_PATH) $(OBJ)
 	$(CC) $(OBJ) $(LDFLAGS) $(LDLIBS)  -o $(NAME)

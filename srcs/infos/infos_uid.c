@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_filling.c                                  :+:      :+:    :+:   */
+/*   infos_uid.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/25 20:51:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/26 22:16:32 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/08/26 20:36:46 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/08/26 20:57:29 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void    process_filling(t_slist **list, t_options *opt)
+char    *infos_uid(uid_t uid)
 {
-    (void)list;
-    (void)opt;
+    struct passwd *pwd;
+
+    if ((pwd = getpwuid(uid)) == NULL)
+        return (NULL);
+    return (pwd->pw_name);
 }

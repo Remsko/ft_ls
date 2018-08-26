@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:30:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/25 23:10:36 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/26 20:42:50 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,20 @@ typedef struct  s_options
     char            error;
 }               t_options;
 
-typedef struct  s_object
+typedef struct  s_infos
+{
+    char            *mode;
+    unsigned long   link;
+    char            *uid;
+    char            *gid;
+    unsigned long   size;
+    char            *time;
+}               t_infos;
+
+typedef struct  s_file
 {
     struct dirent   *dirent;
     t_slist         *sub;
-}               t_object;
+}               t_file;
 
 #endif

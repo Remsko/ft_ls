@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 23:03:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/25 23:13:58 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/26 19:08:36 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void    error_malloc()
 {
-    ft_putstr("ls: malloc failed\n");
+    ft_putstr("ft_ls: malloc failed\n");
     exit(EXIT_FAILURE);
 }
