@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:32:07 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/27 10:39:44 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/27 21:43:07 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ t_file *new_file(struct dirent *dirent);
 
 t_infos *new_infos(char *path);
 
+t_target *new_target(char *path);
+
 /* INFOS */
 
 char    *infos_gid(gid_t gid);
@@ -64,5 +66,6 @@ char    *infos_time(time_t time);
 char    infos_type(mode_t mode);
 
 char    *infos_uid(uid_t uid);
+
 
 #endif
