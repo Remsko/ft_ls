@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:32:07 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/27 21:43:07 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/27 22:04:51 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,27 +45,26 @@ void error_stat();
 
 t_file *new_file(struct dirent *dirent);
 
-t_infos *new_infos(char *path);
+t_infos *new_infos(struct stat *sd);
 
 t_target *new_target(char *path);
 
 /* INFOS */
 
-char    *infos_gid(gid_t gid);
+char    infos_type(mode_t mode);
 
 char    *infos_mode(mode_t mode);
+
+char    *infos_gid(gid_t gid);
+
+char    *infos_uid(uid_t uid);
+
+char    *infos_time(time_t time);
 
 void    infos_permi_usr(mode_t mode, char *m);
 
 void    infos_permi_grp(mode_t mode, char *m);
 
 void    infos_permi_oth(mode_t mode, char *m);
-
-char    *infos_time(time_t time);
-
-char    infos_type(mode_t mode);
-
-char    *infos_uid(uid_t uid);
-
 
 #endif
