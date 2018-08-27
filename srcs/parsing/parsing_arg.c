@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 19:46:20 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/25 21:43:19 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/27 21:01:12 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ t_bool parsing_arg(t_options *opt, char **av)
         else if (*(*av + 1) == '-')
         {
             if (*(*av + 2) == '\0')
+            {
+                ++av;
                 break;
+            }
             opt->error = '-';
             return (FALSE);
         }
