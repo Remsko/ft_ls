@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:30:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/26 20:42:50 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/27 13:17:23 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct  s_infos
     char            *uid;
     char            *gid;
     unsigned long   size;
+    unsigned long   blocks;
     char            *time;
 }               t_infos;
 
