@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 22:11:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/28 13:02:45 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/28 14:04:13 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void    process_dir(t_slist **list, char *target)
     t_file          *file;
     t_slist         *new;
 
+    // blocks dir
     if ((dir = opendir(target)) == NULL)
         return (error_directory(target));
     while ((dirent = readdir(dir)) != NULL)
@@ -28,6 +29,8 @@ void    process_dir(t_slist **list, char *target)
         if ((new = slist_new((void *)file)) == NULL)
             error_malloc();
         slist_add_start(list, new);
+        // add dir block to blocks dir;
     }
     closedir(dir);
+    // return blocks dir
 }

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:32:07 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/28 13:01:59 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/28 13:49:23 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void process_dir(t_slist **directories, char *target);
 void    display_list(t_slist *list);
 
 void    display_file(t_target *target);
+
+void    display_directory();
 
 /* ERROR */
 

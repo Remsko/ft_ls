@@ -7,23 +7,30 @@ LIBFT = libft/libft.a
 LIBLST = liblst/liblst.a
 
 SRC_PATH = srcs/
-SRC_NAME = main.c \
+SRC_NAME =	main.c \
+			\
 			parsing/parsing_arg.c \
 			parsing/parsing_options.c \
+			\
 			process/process_filling.c \
 			process/process_dir.c \
+			\
 			display/display_list.c \
 			display/display_file.c \
+			display/display_directory.c \
+			\
 			error/error_usage.c \
 			error/error_malloc.c \
 			error/error_directory.c \
 			error/error_stat.c \
+			\
 			infos/infos_gid.c \
 			infos/infos_uid.c \
 			infos/infos_mode.c \
 			infos/infos_permi.c \
 			infos/infos_time.c \
 			infos/infos_type.c \
+			\
 			new/new_infos.c \
 			new/new_file.c \
 			new/new_target.c \
