@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:51:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/27 13:01:19 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/28 11:17:27 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,21 @@
 
 void    process_filling(t_slist **list, t_options *opt)
 {
+    t_target *new;
+
+    new = NULL;
     if (opt->targets == NULL || *opt->targets == NULL)
     {
-        process_dir(list, ".");
-        while (*list != NULL)
-        {
-            t_file *file = (t_file *)(*list)->content;
-            printf("file = %s\n", file->dirent->d_name);
-            *list = (*list)->next;
-        }
+        new = new_target(".");
+        slist_add_start(list, slist_new((void *)new));
     }
     else
     {
         while (*opt->targets != NULL)
         {
-            printf("%s\n", *opt->targets);
-            process_dir(list, *opt->targets);
+            new = new_target(*opt->targets);
+            slist_add_start(list, slist_new((void *)new));
             ++opt->targets;
         }
-        while (*list != NULL)
-        {
-            t_file *file = (t_file *)(*list)->content;
-            printf("file = %s\n", file->dirent->d_name);
-            *list = (*list)->next;
-        }
     }
-    (void)list;
-    (void)opt;
 }

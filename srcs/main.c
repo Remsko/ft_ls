@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:28:19 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/27 21:09:06 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/28 12:37:17 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(int ac, char **av)
 		//printf("%s %lu %s %s %lu %s %s\n", infos->mode, infos->link, infos->uid, infos->gid, infos->size, infos->time, av[1]);
 	}
 	process_filling(&list, &opt);
-	display_list();
+	display_list(list);
 
 	printf("option l = %d\n", ((opt.flags & 1) > 0));
 	printf("option R = %d\n", ((opt.flags & (1 << 1)) > 0));

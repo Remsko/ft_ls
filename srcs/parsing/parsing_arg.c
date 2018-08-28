@@ -6,11 +6,17 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 19:46:20 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/27 21:01:12 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/28 10:42:20 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+// if (ft_strcmp(*av, "-") == 0)
+//      break;
+// if (ft_strcmp(*av, "--") == 0)
+//      break (++av);
+// if (ft_strcmp(*av, ))
 
 t_bool parsing_arg(t_options *opt, char **av)
 {
