@@ -6,27 +6,27 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 22:11:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/28 14:04:13 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/29 13:39:07 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void    process_dir(t_slist **list, char *target)
+void    process_dir(t_slist **list, char *path)
 {
     DIR             *dir;
     struct dirent   *dirent;
-    t_file          *file;
+    t_target        *target;
     t_slist         *new;
-
+    (void)list;
     // blocks dir
-    if ((dir = opendir(target)) == NULL)
-        return (error_directory(target));
+    if ((dir = opendir(path)) == NULL)
+        return (error_directory(path));
     while ((dirent = readdir(dir)) != NULL)
     {
-        if ((file = new_file(dirent)) == NULL)
-            error_malloc();
-        if ((new = slist_new((void *)file)) == NULL)
+        target = new_target(dirent->d_name);
+        printf("path %s -> target->path %s\n", path, target->path);
+        if ((new = slist_new((void *)target)) == NULL)
             error_malloc();
         slist_add_start(list, new);
         // add dir block to blocks dir;
