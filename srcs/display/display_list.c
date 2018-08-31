@@ -6,18 +6,18 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:58:58 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/31 16:09:10 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/31 16:47:37 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void    display_list(t_slist *list)
+void display_list(t_slist *list)
 {
-    t_slist     *directories;
-    t_slist     *directory;
-    t_slist     *new;
-    t_target    *target;
+    t_slist *directories;
+    t_slist *directory;
+    t_slist *new;
+    t_target *target;
 
     directories = NULL;
     directory = NULL;
@@ -26,11 +26,14 @@ void    display_list(t_slist *list)
         target = (t_target *)list->content;
         if (target->stat.st_mode & S_IFDIR)
         {
-            printf("path = %s\n", target->path);
-            process_dir(&directory, target->path);
-            if ((new = slist_new((void *)directory)) == NULL)
-                error_malloc();
-            slist_add_start(&directories, new);
+            if (ft_strcmp(target->name, "..") != 0)
+            {
+                printf("path = %s\n", target->path);
+                process_dir(&directory, target->path);
+                if ((new = slist_new((void *)directory)) == NULL)
+                    error_malloc();
+                slist_add_start(&directories, new);
+            }
         }
         else
             display_file(target);

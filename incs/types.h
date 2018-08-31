@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:30:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/28 12:51:37 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/31 16:46:28 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct  s_options
 typedef struct  s_target
 {
     struct stat     stat;
+    char            *name;
     char            *path;
     unsigned long   total;
 }               t_target;
