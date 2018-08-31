@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_stat.c                                       :+:      :+:    :+:   */
+/*   new_path.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/26 19:07:35 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/31 14:14:07 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/08/31 14:21:40 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/08/31 14:31:38 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void    error_stat(char *path)
+char    *new_path(char *start, char *end)
 {
-    ft_putstr("ft_ls: ");
-    ft_putstr(path);
-    perror(" stat");
-    exit(EXIT_FAILURE);
+    char *new;
+    char *ret;
+
+    if ((new = (char *)malloc(sizeof(char) * ft_strlen(start) + ft_strlen(end) + 2)) == NULL)
+        error_malloc();
+    ret = new;
+    while (*start != '\0')
+        *new++ = *start++;
+    *new++ = '/';
+    while (*end != '\0')
+        *new++ = *end++;
+    *new = '\0';
+    return (ret);
 }

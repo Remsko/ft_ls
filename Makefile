@@ -34,6 +34,7 @@ SRC_NAME =	main.c \
 			new/new_infos.c \
 			new/new_file.c \
 			new/new_target.c \
+			new/new_path.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 
