@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:32:07 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/31 16:48:32 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/31 18:58:33 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,16 @@ t_bool parsing_arg(t_options *opt, char **av);
 /* PROCESS */
 
 void process_filling(t_slist **list, t_options *opt);
+
 void process_dir(t_slist **list, char *path);
 
 /* DISPLAY */
 
-void    display_list(t_slist *list);
+void    display_list(t_slist *list, int recu);
 
 void    display_file(t_target *target);
 
-void    display_directory(t_slist *directory);
+void    display_directory(t_slist *directory, int recu);
 
 /* ERROR */
 

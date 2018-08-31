@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 12:59:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/28 13:01:17 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/31 19:18:12 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void    display_file(t_target *target)
 {
-    ft_putstr(target->path);
+    ft_putstr(target->name);
     ft_putchar('\n');
 }

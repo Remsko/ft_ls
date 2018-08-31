@@ -6,13 +6,13 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:58:58 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/31 16:47:37 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/31 19:09:10 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void display_list(t_slist *list)
+void display_list(t_slist *list, int recu)
 {
     t_slist *directories;
     t_slist *directory;
@@ -26,9 +26,10 @@ void display_list(t_slist *list)
         target = (t_target *)list->content;
         if (target->stat.st_mode & S_IFDIR)
         {
-            if (ft_strcmp(target->name, "..") != 0)
+            if (target->name[0] != '.'
+            && (target->name[1] != '\0'
+            || (target->name[1] != '.' && target->name[2] != '\0')))
             {
-                printf("path = %s\n", target->path);
                 process_dir(&directory, target->path);
                 if ((new = slist_new((void *)directory)) == NULL)
                     error_malloc();
@@ -39,5 +40,5 @@ void display_list(t_slist *list)
             display_file(target);
         list = list->next;
     }
-    display_directory(directories);
+    display_directory(directories, recu + 1);
 }

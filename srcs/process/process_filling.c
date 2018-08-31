@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:51:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/29 13:22:16 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/31 18:49:10 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void    process_filling(t_slist **list, t_options *opt)
     if (opt->targets == NULL || *opt->targets == NULL)
     {
         new = new_target(".");
+        new->name = ft_strdup(".");
         slist_add_start(list, slist_new((void *)new));
     }
     else
@@ -27,6 +28,7 @@ void    process_filling(t_slist **list, t_options *opt)
         while (*opt->targets != NULL)
         {
             new = new_target(*opt->targets);
+            new->name = ft_strdup(*opt->targets);
             slist_add_start(list, slist_new((void *)new));
             ++opt->targets;
         }
