@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 22:11:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/31 15:20:30 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/31 16:08:15 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void    process_dir(t_slist **list, char *path)
         return (error_directory(path));
     while ((dirent = readdir(dir)) != NULL)
     {
+        //printf("%s %s\n", path, dirent->d_name);
         root = new_path(path, dirent->d_name);
         target = new_target(root);
         if ((new = slist_new((void *)target)) == NULL)

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:58:58 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/31 15:20:13 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/08/31 16:09:10 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void    display_list(t_slist *list)
         target = (t_target *)list->content;
         if (target->stat.st_mode & S_IFDIR)
         {
+            printf("path = %s\n", target->path);
             process_dir(&directory, target->path);
             if ((new = slist_new((void *)directory)) == NULL)
                 error_malloc();
