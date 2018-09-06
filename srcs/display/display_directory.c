@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 13:48:36 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/31 20:00:13 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/06 13:19:03 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void    display_directory(t_slist *directory, int recu)
 {
-    t_slist     *tmp;
+    t_directory     *tmp;
 
     while (directory != NULL)
     {
-        tmp = (t_slist *)directory->content;
-        display_list(tmp, recu);
+        tmp = (t_directory *)directory->content;
+        ft_putstr(tmp->path);
+        ft_putstr(":\n");
+        display_list(tmp->list, recu);
         directory = directory->next;
     }
 }

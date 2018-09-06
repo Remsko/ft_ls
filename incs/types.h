@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:30:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/31 16:46:28 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/06 13:43:04 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef struct  s_options
 {
-    char            **targets;
+    char            **targets;//
     unsigned char   flags;
     char            error;
 }               t_options;
@@ -27,7 +27,6 @@ typedef struct  s_target
     struct stat     stat;
     char            *name;
     char            *path;
-    unsigned long   total;
 }               t_target;
 
 typedef struct  s_infos
@@ -41,10 +40,11 @@ typedef struct  s_infos
     char            *time;
 }               t_infos;
 
-typedef struct  s_file
+typedef struct  s_directory
 {
-    struct dirent   *dirent;
-    t_slist         *sub;
-}               t_file;
+    t_slist         *list;
+    char            *path;
+    unsigned long   total;
+}               t_directory;
 
 #endif

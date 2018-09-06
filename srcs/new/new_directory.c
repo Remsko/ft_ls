@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_file.c                                         :+:      :+:    :+:   */
+/*   new_directory.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/26 20:37:55 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/26 21:15:18 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/09/06 13:12:08 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/09/06 13:13:26 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-t_file    *new_file(struct dirent *dirent)
+t_directory    *new_directory(char *path)
 {
-    t_file *new;
+    t_directory *new;
 
-    if ((new = (t_file *)malloc(sizeof(t_file))) != NULL)
+    if ((new = (t_directory *)malloc(sizeof(t_directory))) != NULL)
     {
-        new->dirent = dirent;
-        new->sub = NULL;
+        new->path = path;
+        new->list = NULL;
     }
     return (new);
 }
