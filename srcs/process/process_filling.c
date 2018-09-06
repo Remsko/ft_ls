@@ -6,13 +6,13 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:51:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/06 16:14:33 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/06 17:34:24 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void process_filling(t_slist **list, char **av)
+void process_filling(t_slist **list, t_options *opt, char **av)
 {
     t_target *new;
 
@@ -25,6 +25,8 @@ void process_filling(t_slist **list, char **av)
     }
     else
     {
+        if (*av != NULL && *(av + 1) != NULL)
+            opt->flags |= FLAG_PATH;
         while (*av != NULL)
         {
             new = new_target(*av);
