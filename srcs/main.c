@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:28:19 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/06 14:28:10 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/06 16:15:24 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,13 @@ int main(int ac, char **av)
 	t_options	opt;
 	
 	list = NULL;
-	ft_bzero(&opt, sizeof(t_options));
+	opt.flags = 0;
 	if (ac > 1)
-		parsing_arg(&opt, av);
-	process_filling(&list, &opt);
+		parsing_arg(&opt, &av);
+	process_filling(&list, av);
 	display_list(list, 0);
 
 	/*
-	printf("new path = %s\n", new_path(".", "ft_ls.h"));
-
 	printf("option l = %d\n", ((opt.flags & 1) > 0));
 	printf("option R = %d\n", ((opt.flags & (1 << 1)) > 0));
 	printf("option a = %d\n", ((opt.flags & (1 << 2)) > 0));

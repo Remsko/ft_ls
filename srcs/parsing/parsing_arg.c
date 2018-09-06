@@ -6,14 +6,17 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 19:46:20 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/06 14:57:57 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/06 16:11:57 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void    parsing_arg(t_options *opt, char **av)
+void    parsing_arg(t_options *opt, char ***av_ptr)
 {
+    char **av;
+
+    av = *av_ptr;
     while (*(++av) != NULL)
     {
         if (**av != '-' || *(*av + 1) == '\0')
@@ -29,5 +32,5 @@ void    parsing_arg(t_options *opt, char **av)
         }
         parsing_options(opt, *av);
     }
-    opt->targets = av;
+    *av_ptr = av;
 }
