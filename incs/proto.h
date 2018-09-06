@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:32:07 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/06 13:16:31 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/06 14:29:22 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 
 /* PARSING */
 
-t_bool parsing_options(t_options *opt, char *av);
+void    parsing_options(t_options *opt, char *av);
 
-t_bool parsing_arg(t_options *opt, char **av);
+void    parsing_arg(t_options *opt, char **av);
 
 /* PROCESS */
 

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:58:58 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/06 13:44:38 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/06 14:44:33 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ static t_bool check_point(char *name)
         return (TRUE);
     else if (name[1] == '.' && name[2] == '\0')
         return (TRUE);
-    else
-        return (FALSE);
+    return (FALSE);
 }
 
 void display_list(t_slist *list, int recu)
@@ -42,9 +41,9 @@ void display_list(t_slist *list, int recu)
             {
                 if ((directory = new_directory(target->path)) == NULL)
                     error_malloc();
+                process_dir(directory);
                 if ((new = slist_new((void *)directory)) == NULL)
                     error_malloc();
-                process_dir(directory);
                 slist_add_start(&directories, new);
             }
         }
