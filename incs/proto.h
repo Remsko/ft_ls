@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:32:07 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/06 17:59:26 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/07 17:21:39 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void process_filling(t_slist **list, t_options *opt, char **av);
 
 void process_dir(t_directory *directory);
 
+void    process_sort(t_slist **list, t_options *opt);
+
 /* DISPLAY */
 
 void display_list(t_slist *list, t_options *opt);
@@ -34,6 +36,8 @@ void display_list(t_slist *list, t_options *opt);
 void display_file(t_target *target, t_options *opt);
 
 void display_directory(t_slist *directory, t_options *opt);
+
+void    display_infos(t_infos *infos, t_options *opt);
 
 /* ERROR */
 

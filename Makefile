@@ -14,10 +14,12 @@ SRC_NAME =	main.c \
 			\
 			process/process_filling.c \
 			process/process_dir.c \
+			process/process_sort.c \
 			\
 			display/display_list.c \
 			display/display_file.c \
 			display/display_directory.c \
+			display/display_infos.c \
 			\
 			error/error_usage.c \
 			error/error_malloc.c \

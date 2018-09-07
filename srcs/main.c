@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:28:19 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/06 17:40:16 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/07 17:26:48 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,13 @@ int main(int ac, char **av)
 	if (ac > 1)
 		parsing_arg(&opt, &av);
 	process_filling(&list, &opt, av);
+	process_sort(&list, &opt);
+	/*
+	while (list != NULL)
+	{
+		printf("%s\n", ((t_target *)list->content)->name);
+		list = list->next;
+	}*/
 	display_list(list, &opt);
 	//printf("ARGS \n\n");
 	//while (*av)
