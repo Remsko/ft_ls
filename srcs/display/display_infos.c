@@ -6,11 +6,26 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 13:13:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/10 13:40:58 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/10 21:11:56 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+/*
+static void display_size()
+{
+    if (type == S_IFCHR) // 'c'
+    {
+        major(stat.st_rdev);
+        minor(stat.st_rdev);
+    }
+    else
+    {
+        put(stat.st_size);
+    }
+}
+*/
 
 void    display_infos(t_infos *infos, t_options *opt)
 {

@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_file.c                                     :+:      :+:    :+:   */
+/*   infos_acl.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/28 12:59:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/10 20:32:32 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/09/10 20:32:44 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/09/10 20:57:28 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void    display_file(t_target *target, t_options *opt)
+void    infos_extended(char *path, char *ext)
 {
-    t_infos infos;
+    acl_t acl;
 
-    //opt->flags |= FLAG_NL;
-    if (opt->flags & FLAG_l)
+    if (listxattr(path, NULL, 0) > 0)
+        *ext = '@';
+    else if ((acl = acl_get_file(path, ACL_TYPE_EXTENDED)) != NULL)
     {
-        infos = new_infos(&target->stat);
-        infos_acl(target->path, &infos.mode[10]);
-        display_infos(&infos, opt);
+        *ext = '+'
+        acl_free(acl);
     }
-    ft_putstr(target->name);
-    ft_putchar('\n');
 }

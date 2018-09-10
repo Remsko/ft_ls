@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:32:07 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/10 13:44:19 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/10 20:42:51 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ char *infos_gid(gid_t gid);
 char *infos_uid(uid_t uid);
 
 char *infos_time(time_t time);
+
+void infos_acl(char *path, char *mode_acl);
 
 void infos_permi_usr(mode_t mode, char *m);
 
