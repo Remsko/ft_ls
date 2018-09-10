@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:58:58 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/06 17:59:07 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/10 12:51:59 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ void display_list(t_slist *list, t_options *opt)
                     error_malloc();
                 slist_add_start(&directories, new);
             }
-            if ((opt->flags & FLAG_NO_R) != 0)
-                display_file(target, opt);
+            //if ((opt->flags & FLAG_NO_R) != 0)
+            //    display_file(target, opt);
         }
-        else
+        //else
             display_file(target, opt);
         list = list->next;
     }
-    if (opt->flags & FLAG_R || (opt->flags & FLAG_NO_R) == 0)
+    //if (opt->flags & FLAG_R || (opt->flags & FLAG_NO_R) == 0)
         display_directory(directories, opt);
 }

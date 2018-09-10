@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:28:19 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/07 17:26:48 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/10 13:38:46 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main(int ac, char **av)
 	
 	list = NULL;
 	opt.flags = 0;
+	opt.utils = 0;
 	++av;
 	if (ac > 1)
 		parsing_arg(&opt, &av);
@@ -39,7 +40,7 @@ int main(int ac, char **av)
 	printf("option a = %d\n", ((opt.flags & (1 << 2)) > 0));
 	printf("option r = %d\n", ((opt.flags & (1 << 3)) > 0));
 	printf("option t = %d\n", ((opt.flags & (1 << 4)) > 0));
-	printf("option no_R = %d\n", ((opt.flags & (1 << 5)) > 0));
-	printf("option path = %d\n", ((opt.flags & (1 << 6)) > 0));
+	printf("utils no_R = %d\n", ((opt.utils & (1)) > 0));
+	printf("utils path = %d\n", ((opt.utils & (1 << 1)) > 0));
 	return (0);
 }

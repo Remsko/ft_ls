@@ -6,16 +6,11 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 16:16:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/07 17:20:42 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/10 13:02:00 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-int  target_cmp(t_target *front, t_target *back)
-{
-    return (ft_strcmp(front->name, back->name));
-}
 
 static t_slist *join_list(t_slist *front, t_slist *back)
 {
@@ -25,8 +20,8 @@ static t_slist *join_list(t_slist *front, t_slist *back)
         return (back);
     else if (back == NULL)
         return (front);
-        /* dat line tho */
-    if (ft_strcmp(((t_target *)front->content)->name, ((t_target *)back->content)->name) <= 0)
+    if (ft_strcmp(((t_target *)front->content)->name,
+        ((t_target *)back->content)->name) <= 0)
     {
         ret = front;
         ret->next = join_list(front->next, back);

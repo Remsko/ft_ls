@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:30:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/06 16:02:08 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/10 13:36:06 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 typedef struct  s_options
 {
     unsigned char   flags;
+    unsigned char   utils;
 }               t_options;
 
 typedef struct  s_target

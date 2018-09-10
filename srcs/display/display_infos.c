@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 13:13:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/07 16:13:44 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/10 13:40:58 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void    display_infos(t_infos *infos, t_options *opt)
     ft_putnbr(infos->size);
     ft_putstr(" ");
     ft_putstr(infos->time);
+    //display_time(infos, opt);
     /*
     if (infos->time[0] == '0')
     {
