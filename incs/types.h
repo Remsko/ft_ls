@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:30:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/10 13:36:06 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/11 18:25:55 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@ typedef struct  s_directory
     t_slist         *list;
     char            *path;
     unsigned long   total;
+    unsigned long   maxlinks;
+    unsigned long   maxsize;
+    unsigned long   maxuid;
+    unsigned long   maxgid;
 }               t_directory;
 
 #endif

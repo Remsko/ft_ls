@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 13:48:36 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/11 13:29:30 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/11 17:52:23 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void display_path(char *path, t_options *opt)
 {
     (void)opt;
+    ft_putchar('\n');
     //if (opt->flags & FLAG_PATH)
     //{
     //    if (opt->flags & FLAG_NL)
@@ -42,6 +43,7 @@ void display_directory(t_slist *directory, t_options *opt)
     while (directory != NULL)
     {
         tmp = (t_directory *)directory->content;
+        process_sort(&tmp->list, opt);
         display_path(tmp->path, opt);
         display_total(tmp->total);
         display_list(tmp->list, opt);

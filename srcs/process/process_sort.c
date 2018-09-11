@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 16:16:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/11 14:01:56 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/11 14:21:11 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ static int      ft_cmp(t_target *front, t_target *back, t_options *opt)
 {
     if (opt->flags & FLAG_t)
     {
-        if (front->stat.st_mtime < back->stat.st_mtime)
-            return (-1);
-        else if (front->stat.st_mtime > back->stat.st_mtime)
+        if (front->stat.st_mtime > back->stat.st_mtime)
             return (1);
+        else if (front->stat.st_mtime < back->stat.st_mtime)
+            return (-1);
         else
             ;
     }
@@ -85,4 +85,6 @@ void    process_sort(t_slist **list, t_options *opt)
 {
     (void)opt;
     merge_sort(list, opt);
+    // if (opt->flags & FLAG_r)
+    //  slist_reverse(list);
 }

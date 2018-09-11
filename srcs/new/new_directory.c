@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 13:12:08 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/06 13:13:26 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/11 18:07:13 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ t_directory    *new_directory(char *path)
     {
         new->path = path;
         new->list = NULL;
+        new->total = 0;
+        new->maxlinks = 0;
+        new->maxsize = 0;
     }
     return (new);
 }

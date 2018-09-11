@@ -6,13 +6,13 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:58:58 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/11 13:38:58 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/11 14:17:56 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static t_bool check_point(char *name)
+static t_bool check_pointdir(char *name)
 {
     if (name[0] == '.' && (name[1] == '\0' || (name[1] == '.' && name[2] == '\0')))
         return (TRUE);
@@ -33,7 +33,7 @@ void display_list(t_slist *list, t_options *opt)
         target = (t_target *)list->content;
         if (target->stat.st_mode & S_IFDIR)
         {
-            if (check_point(target->name) == FALSE)
+            if (check_pointdir(target->name) == FALSE)
             {
                 if ((directory = new_directory(target->path)) == NULL)
                     error_malloc();
