@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:58:58 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/10 21:54:22 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/11 13:38:58 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 
 static t_bool check_point(char *name)
 {
-    if (name[0] != '.')
-        return (FALSE);
-    else if (name[1] == '\0')
-        return (TRUE);
-    else if (name[1] == '.' && name[2] == '\0')
+    if (name[0] == '.' && (name[1] == '\0' || (name[1] == '.' && name[2] == '\0')))
         return (TRUE);
     return (FALSE);
 }
@@ -30,8 +26,8 @@ void display_list(t_slist *list, t_options *opt)
     t_slist *new;
     t_target *target;
 
-    directories = NULL;
     directory = NULL;
+    directories = NULL;
     while (list != NULL)
     {
         target = (t_target *)list->content;

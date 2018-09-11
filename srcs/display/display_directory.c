@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 13:48:36 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/10 13:12:10 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/11 13:29:30 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@ static void display_path(char *path, t_options *opt)
     //}
 }
 
+static void display_total(unsigned long total)
+{
+    ft_putstr("total ");
+    ft_putnbr(total);
+    ft_putstr("\n");
+}
+
 void display_directory(t_slist *directory, t_options *opt)
 {
     t_directory *tmp;
@@ -36,6 +43,7 @@ void display_directory(t_slist *directory, t_options *opt)
     {
         tmp = (t_directory *)directory->content;
         display_path(tmp->path, opt);
+        display_total(tmp->total);
         display_list(tmp->list, opt);
         directory = directory->next;
     }

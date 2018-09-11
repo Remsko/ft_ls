@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   infos_acl.c                                        :+:      :+:    :+:   */
+/*   infos_extended.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/10 20:32:44 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/10 20:57:28 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/09/11 11:54:18 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/09/11 11:59:38 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void    infos_extended(char *path, char *ext)
 {
     acl_t acl;
 
-    if (listxattr(path, NULL, 0) > 0)
+    if (listxattr(path, NULL, 0, XATTR_NOFOLLOW) > 0)
         *ext = '@';
     else if ((acl = acl_get_file(path, ACL_TYPE_EXTENDED)) != NULL)
     {
-        *ext = '+'
+        *ext = '+';
         acl_free(acl);
     }
 }

@@ -20,6 +20,7 @@ SRC_NAME =	main.c \
 			display/display_file.c \
 			display/display_directory.c \
 			display/display_infos.c \
+			display/display_time.c \
 			\
 			error/error_usage.c \
 			error/error_malloc.c \
@@ -32,7 +33,7 @@ SRC_NAME =	main.c \
 			infos/infos_permi.c \
 			infos/infos_time.c \
 			infos/infos_type.c \
-			infos/infos_acl.c \
+			infos/infos_extended.c \
 			\
 			new/new_infos.c \
 			new/new_target.c \
