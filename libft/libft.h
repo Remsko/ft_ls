@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: remsko <remsko@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 10:38:40 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/26 16:12:48 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/12 11:59:03 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,6 @@ int					ft_tablen(char **str);
 void				ft_deltab(void *content, size_t content_size);
 void				ft_lstrev(t_list **alist);
 t_bool				ft_isstrint(char *str, int *target);
+int					ft_intlen(int nb);
 
 #endif

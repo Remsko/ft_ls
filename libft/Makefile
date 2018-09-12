@@ -77,6 +77,7 @@ SRC =	ft_lstdel.c \
 	ft_tablen.c \
 	ft_lstrev.c \
 	ft_isstrint.c \
+	ft_intlen.c \
 
 OBJ_PATH = obj/
 OBJ_NAME = $(SRC:.c=.o)
