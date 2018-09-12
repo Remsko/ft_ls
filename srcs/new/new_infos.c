@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/26 20:38:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/12 11:42:19 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/12 21:18:48 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_infos  *new_infos(struct stat *sd)
     new->gid = infos_gid(sd->st_gid);
     new->size = (int)sd->st_size;
     new->blocks = (int)sd->st_blocks;
+    new->mtime = (int)sd->st_mtime;
     new->time = infos_time(sd->st_mtime);
     return (new);
 }

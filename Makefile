@@ -33,7 +33,6 @@ SRC_NAME =	main.c \
 			infos/infos_permi.c \
 			infos/infos_time.c \
 			infos/infos_type.c \
-			infos/infos_extended.c \
 			\
 			new/new_infos.c \
 			new/new_target.c \

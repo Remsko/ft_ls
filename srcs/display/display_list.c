@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:58:58 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/11 14:17:56 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/12 21:19:43 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void display_list(t_slist *list, t_options *opt)
     while (list != NULL)
     {
         target = (t_target *)list->content;
-        if (target->stat.st_mode & S_IFDIR)
+        if (target->infos->mode[0] == 'd')
         {
             if (check_pointdir(target->name) == FALSE)
             {

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:30:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/12 12:49:01 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/12 21:24:55 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct  s_infos
     char            *uid;
     char            *gid;
     char            *time;
+    int             mtime;
     int             blocks;
     int             link;
     int             size;
@@ -35,7 +36,7 @@ typedef struct  s_infos
 typedef struct  s_target
 {
     struct stat     stat;
-    t_infos         infos;
+    t_infos         *infos;
     char            *name;
     char            *path;
 }               t_target;
