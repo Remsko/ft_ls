@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:30:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/11 18:25:55 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/12 11:40:01 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,33 +21,34 @@ typedef struct  s_options
     unsigned char   utils;
 }               t_options;
 
-typedef struct  s_target
-{
-    struct stat     stat;
-    char            *name;
-    char            *path;
-}               t_target;
-
 typedef struct  s_infos
 {
     char            *mode;
-    unsigned long   link;
     char            *uid;
     char            *gid;
-    unsigned long   size;
-    unsigned long   blocks;
     char            *time;
+    int             blocks;
+    int             link;
+    int             size;
 }               t_infos;
+
+typedef struct  s_target
+{
+    struct stat     stat;
+    //t_infos         infos;
+    char            *name;
+    char            *path;
+}               t_target;
 
 typedef struct  s_directory
 {
     t_slist         *list;
     char            *path;
-    unsigned long   total;
-    unsigned long   maxlinks;
-    unsigned long   maxsize;
-    unsigned long   maxuid;
-    unsigned long   maxgid;
+    int             total;
+    int             maxlink;
+    int             maxsize;
+    int             maxuid;
+    int             maxgid;
 }               t_directory;
 
 #endif

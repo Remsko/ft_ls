@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:32:07 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/11 11:55:21 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/12 11:42:34 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void error_stat(char *path);
 
 //t_file *new_file(struct dirent *dirent);
 
-t_infos new_infos(struct stat *sd);
+t_infos *new_infos(struct stat *sd);
 
 t_target *new_target(char *path);
 
