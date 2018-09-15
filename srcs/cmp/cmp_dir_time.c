@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/15 13:58:20 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 17:49:21 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 21:16:11 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int cmp_dir_time(void *front, void *back)
     {
         if (dir1->st.st_mtimespec.tv_sec < dir2->st.st_mtimespec.tv_sec)
             return (1);
-        else if (dir1->st.st_mtimespec.tv_sec > dir2->st.st_mtimespec.tv_sec)
+        if (dir1->st.st_mtimespec.tv_sec > dir2->st.st_mtimespec.tv_sec)
             return (-1);
         else
         {
             if (dir1->st.st_mtimespec.tv_nsec < dir2->st.st_mtimespec.tv_nsec)
                 return (1);
-            else if (dir1->st.st_mtimespec.tv_nsec > dir2->st.st_mtimespec.tv_nsec)
+            if (dir1->st.st_mtimespec.tv_nsec > dir2->st.st_mtimespec.tv_nsec)
                 return (-1);
             else
                 return (ft_strcmp(dir1->path, dir2->path));

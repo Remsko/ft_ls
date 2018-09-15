@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 19:46:20 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 19:12:48 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 19:25:55 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 void    sort_args(char **argv)
 {
     char	*tmp;
-	int		find;
 	int		i;
+	t_bool  find;
 
-	find = 1;
-	while (find)
+	find = TRUE;
+	while (find == TRUE)
 	{
-		find = 0;
 		i = 0;
+		find = FALSE;
 		while (argv[i + 1] != NULL)
 		{
 			if (ft_strcmp(argv[i], argv[i + 1]) > 0)

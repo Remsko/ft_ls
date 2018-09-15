@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 22:32:51 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/27 13:04:31 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 20:11:52 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,5 @@
 void    error_directory(char *dir)
 {
     ft_putstr("ft_ls: ");
-    ft_putstr(dir);
-    ft_putstr(": No such file or directory\n");
+    perror(dir);
 }

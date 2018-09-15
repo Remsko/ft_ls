@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:58:58 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 17:20:07 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 19:57:06 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void display_list(t_slist *list, t_max *max, t_options *opt)
     while (list != NULL)
     {
         target = (t_target *)list->content;
-        if (S_ISDIR(target->st.st_mode))
+        if (S_ISDIR(target->st.st_mode) && opt->flags & FLAG_R)
         {
             if (check_pointdir(target->name) == FALSE)
             {
@@ -47,6 +47,7 @@ void display_list(t_slist *list, t_max *max, t_options *opt)
         display_file(target, max, opt);
         list = list->next;
     }
-    if (opt->flags & FLAG_R && (opt->utils |= UTILS_ARGS))
-        display_directories(directories, opt);
+    // free target list
+    opt->utils |= UTILS_ARGS;
+    display_directories(directories, opt);
 }
