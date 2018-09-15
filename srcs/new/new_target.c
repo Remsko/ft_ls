@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/27 21:33:11 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 17:07:38 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 18:52:24 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,13 @@ t_target    *new_target(char *d_path, char *d_name)
     new->name = ft_strdup(d_name); 
     new->path = new_path(d_path, new->name);
     if (lstat(new->path, &new->st) == -1)
+    {
         error_stat(new->path);
+        ft_memdel((void **)&new->name);
+        ft_memdel((void **)&new->path);
+        ft_memdel((void **)&new);
+        return (NULL);
+    }
     new->infos = new_infos(&new->st);
     return (new);
 }

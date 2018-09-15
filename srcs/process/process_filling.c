@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:51:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 15:28:25 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 18:49:48 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,11 @@ void process_filling(t_slist **directories, t_options *opt, char **av)
             opt->utils |= UTILS_ARGS;
         while (*av != NULL)
         {
-            target = new_target(NULL, *av);
-            slist_add_start(&list, slist_new((void *)target));
-            utils_setup_max(&target->st, target->infos, &max);
+            if ((target = new_target(NULL, *av)) != NULL)
+            {
+                slist_add_start(&list, slist_new((void *)target));
+                utils_setup_max(&target->st, target->infos, &max);
+            }
             ++av;
         }
         max.link = ft_intlen(max.link);

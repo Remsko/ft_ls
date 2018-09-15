@@ -6,15 +6,11 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/26 22:11:46 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 13:07:07 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 18:45:14 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-//static void   cut_day()
-
-//static void   cut_second()
 
 char    *infos_time(time_t t)
 {
