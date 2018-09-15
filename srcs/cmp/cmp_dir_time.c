@@ -6,20 +6,37 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/15 13:58:20 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 14:04:26 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 17:49:21 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int     cmp_dir_time(void *front, void *back)
+int cmp_dir_time(void *front, void *back)
 {
-    t_directory *dir1 = (t_directory *)front;
-    t_directory *dir2 = (t_directory *)back;
-    if (dir1->st.st_mtime > dir2->st.st_mtime)
+    t_directory *dir1;
+    t_directory *dir2;
+
+    dir1 = (t_directory *)front;
+    dir2 = (t_directory *)back;
+    if (dir1->st.st_mtime < dir2->st.st_mtime)
         return (1);
-    else if (dir1->st.st_mtime < dir2->st.st_mtime)
+    else if (dir1->st.st_mtime > dir2->st.st_mtime)
         return (-1);
     else
-        return (ft_strcmp(dir1->path, dir2->path));
+    {
+        if (dir1->st.st_mtimespec.tv_sec < dir2->st.st_mtimespec.tv_sec)
+            return (1);
+        else if (dir1->st.st_mtimespec.tv_sec > dir2->st.st_mtimespec.tv_sec)
+            return (-1);
+        else
+        {
+            if (dir1->st.st_mtimespec.tv_nsec < dir2->st.st_mtimespec.tv_nsec)
+                return (1);
+            else if (dir1->st.st_mtimespec.tv_nsec > dir2->st.st_mtimespec.tv_nsec)
+                return (-1);
+            else
+                return (ft_strcmp(dir1->path, dir2->path));
+        }
+    }
 }
