@@ -6,20 +6,19 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 13:39:34 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 10:05:16 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 15:33:00 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void display_link(t_infos *infos, t_max *max, t_options *opt)
+void display_link(long max, long link)
 {
-    (void)opt;
-    int tmp;
+    long tmp;
 
-    tmp = max->link - ft_intlen(infos->link);
+    tmp = max - ft_intlen(link);
     while (tmp-- > 0)
         ft_putchar(' ');
-    ft_putnbr(infos->link);
+    ft_putnbr((int)link);
     ft_putstr(" ");
 }

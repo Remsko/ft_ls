@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:32:07 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 13:57:58 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 15:46:45 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,19 @@ void display_file(t_target *target, t_max *max, t_options *opt);
 
 void display_directories(t_slist *directory, t_options *opt);
 
-void    display_infos(t_infos *infos, t_max *max, t_options *opt);
+void    display_infos(struct stat *st, t_infos *infos, t_max *max, t_options *opt);
 
-void    display_mode(t_infos *infos, t_max *max, t_options *opt);
+void    display_mode(char *mode);
 
-void    display_time(t_infos *infos, t_options *opt);
+void    display_time(char *time, t_options *opt);
 
-void display_link(t_infos *infos, t_max *max, t_options *opt);
+void    display_link(long max, long link);
 
-void display_size(t_infos *infos, t_max *max, t_options *opt);
+void    display_size(long max, long size);
 
-void    display_gid(t_infos *infos, t_max *max, t_options *opt);
+void    display_gid(long max, char *uid);
 
-void    display_uid(t_infos *infos, t_max *max, t_options *opt);
+void    display_uid(long max, char *uid);
 
 /* ERROR */
 
@@ -102,5 +102,9 @@ int     cmp_file_time(void *front, void *back);
 int     cmp_dir(void *front, void *back);
 
 int     cmp_dir_time(void *front, void *back);
+
+/* UTILS */
+
+void    utils_setup_max(struct stat *st, t_infos *infos, t_max *max);
 
 #endif

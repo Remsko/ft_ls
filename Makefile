@@ -48,6 +48,8 @@ SRC_NAME =	main.c \
 			cmp/cmp_file_time.c \
 			cmp/cmp_dir.c \
 			cmp/cmp_dir_time.c \
+			\
+			utils/utils_setup_max.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 
@@ -76,6 +78,7 @@ $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)new
 	mkdir -p $(OBJ_PATH)infos
 	mkdir -p $(OBJ_PATH)cmp
+	mkdir -p $(OBJ_PATH)utils
 
 $(NAME): $(LIBLST) $(LIBFT) $(OBJ_PATH) $(OBJ)
 	$(CC) $(OBJ) $(LDFLAGS) $(LDLIBS)  -o $(NAME)

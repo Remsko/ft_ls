@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/15 11:29:15 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 14:04:30 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 15:35:42 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int     cmp_file_time(void *front, void *back)
 
     target1 = (t_target *)front;
     target2 = (t_target *)back;
-    if (target1->infos->mtime > target2->infos->mtime)
+    if (target1->st.st_mtime > target2->st.st_mtime)
         return (1);
-    else if (target1->infos->mtime < target2->infos->mtime)
+    else if (target1->st.st_mtime < target2->st.st_mtime)
         return (-1);
     else
         return (ft_strcmp(target1->name, target2->name));

@@ -6,25 +6,13 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 16:16:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 13:46:19 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 15:04:21 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-/*
-static int      ft_cmp(t_target *front, t_target *back, t_options *opt)
-{
-    if (opt->flags & FLAG_t)
-    {
-        if (front->infos->mtime > back->infos->mtime)
-            return (1);
-        else if (front->infos->mtime < back->infos->mtime)
-            return (-1);
-    }
-    return (ft_strcmp(front->name, back->name));
-}
-*/
-t_slist *join_list(t_slist *front, t_slist *back, int ft_cmp(void *, void *))
+
+static t_slist *join_list(t_slist *front, t_slist *back, int ft_cmp(void *, void *))
 {
     t_slist *ret;
 
@@ -45,7 +33,7 @@ t_slist *join_list(t_slist *front, t_slist *back, int ft_cmp(void *, void *))
     return (ret);
 }
 
-void split_list(t_slist *head, t_slist **back)
+static void split_list(t_slist *head, t_slist **back)
 {
     t_slist *tmp;
     t_slist *middle;
@@ -65,7 +53,7 @@ void split_list(t_slist *head, t_slist **back)
     middle->next = NULL;
 }
 
-void merge_sort(t_slist **head, int ft_cmp(void *, void *))
+static void merge_sort(t_slist **head, int ft_cmp(void *, void *))
 {
     t_slist *front;
     t_slist *back;

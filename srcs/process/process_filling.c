@@ -6,27 +6,11 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:51:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 13:45:36 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 15:28:25 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-void setup_max(t_max *max, t_infos *infos)
-{
-    int tmp;
-
-    if (max->link < infos->link)
-        max->link = infos->link;
-    if (max->size < infos->size)
-        max->size = infos->size;
-    if (infos->uid != NULL)
-        if (max->uid < (unsigned long)(tmp = ft_strlen(infos->uid)))
-            max->uid = tmp;
-    if (infos->gid != NULL)
-        if (max->gid < (unsigned long)(tmp = ft_strlen(infos->gid)))
-            max->gid = tmp;
-}
 
 void process_filling(t_slist **directories, t_options *opt, char **av)
 {
@@ -59,7 +43,7 @@ void process_filling(t_slist **directories, t_options *opt, char **av)
         {
             target = new_target(NULL, *av);
             slist_add_start(&list, slist_new((void *)target));
-            setup_max(&max, target->infos);
+            utils_setup_max(&target->st, target->infos, &max);
             ++av;
         }
         max.link = ft_intlen(max.link);
