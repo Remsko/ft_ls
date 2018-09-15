@@ -21,6 +21,11 @@ SRC_NAME =	main.c \
 			display/display_directory.c \
 			display/display_infos.c \
 			display/display_time.c \
+			display/display_link.c \
+			display/display_size.c \
+			display/display_gid.c \
+			display/display_uid.c \
+			display/display_mode.c \
 			\
 			error/error_usage.c \
 			error/error_malloc.c \
@@ -38,6 +43,11 @@ SRC_NAME =	main.c \
 			new/new_target.c \
 			new/new_path.c \
 			new/new_directory.c \
+			\
+			cmp/cmp_file.c \
+			cmp/cmp_file_time.c \
+			cmp/cmp_dir.c \
+			cmp/cmp_dir_time.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 
@@ -65,6 +75,7 @@ $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)display
 	mkdir -p $(OBJ_PATH)new
 	mkdir -p $(OBJ_PATH)infos
+	mkdir -p $(OBJ_PATH)cmp
 
 $(NAME): $(LIBLST) $(LIBFT) $(OBJ_PATH) $(OBJ)
 	$(CC) $(OBJ) $(LDFLAGS) $(LDLIBS)  -o $(NAME)

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 13:13:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/11 13:10:08 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/13 20:12:02 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,12 @@ static void display_size()
 }
 */
 
-void    display_infos(t_infos *infos, t_options *opt)
+void    display_infos(t_infos *infos, t_max *max, t_options *opt)
 {
-    (void)opt;
-    ft_putstr(infos->mode);
-    ft_putstr(" ");
-    ft_putnbr(infos->link);
-    ft_putstr(" ");
-    ft_putstr(infos->uid);
-    ft_putstr("  ");
-    ft_putstr(infos->gid);
-    ft_putstr("  ");
-    ft_putnbr(infos->size);
-    ft_putstr(" ");
+    display_mode(infos, max, opt);
+    display_link(infos, max, opt);
+    display_uid(infos, max, opt);
+    display_gid(infos, max, opt);
+    display_size(infos, max, opt);
     display_time(infos, opt);
-    ft_putstr(" ");
 }

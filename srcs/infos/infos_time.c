@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/26 22:11:46 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/27 21:19:36 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 13:07:07 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,16 @@
 
 char    *infos_time(time_t t)
 {
-    const time_t    *ct;
     char            *ret;
     long            dif;
     time_t          now;
 
     now = time(NULL);
-    ct = &t;
-    ret = ctime(ct);
+    ret = ctime((const time_t *)&t);
     dif = (long)(now - t);
     if (dif > SEC_6_MONTHS || dif < 0)
         ret[0] = '1';
     else
         ret[0] = '0';
-    return (ret);
+    return (ft_strdup(ret));
 }

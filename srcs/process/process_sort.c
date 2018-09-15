@@ -6,12 +6,12 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 16:16:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/12 22:14:57 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 13:46:19 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
+/*
 static int      ft_cmp(t_target *front, t_target *back, t_options *opt)
 {
     if (opt->flags & FLAG_t)
@@ -23,8 +23,8 @@ static int      ft_cmp(t_target *front, t_target *back, t_options *opt)
     }
     return (ft_strcmp(front->name, back->name));
 }
-
-static t_slist *join_list(t_slist *front, t_slist *back, t_options *opt)
+*/
+t_slist *join_list(t_slist *front, t_slist *back, int ft_cmp(void *, void *))
 {
     t_slist *ret;
 
@@ -32,20 +32,20 @@ static t_slist *join_list(t_slist *front, t_slist *back, t_options *opt)
         return (back);
     else if (back == NULL)
         return (front);
-    if (ft_cmp((t_target *)front->content, (t_target *)back->content, opt) <= 0)
+    if (ft_cmp(front->content, back->content) <= 0)
     {
         ret = front;
-        ret->next = join_list(front->next, back, opt);
+        ret->next = join_list(front->next, back, ft_cmp);
     }
     else
     {
         ret = back;
-        ret->next = join_list(front, back->next, opt);
+        ret->next = join_list(front, back->next, ft_cmp);
     }
     return (ret);
 }
 
-static void split_list(t_slist *head, t_slist **back)
+void split_list(t_slist *head, t_slist **back)
 {
     t_slist *tmp;
     t_slist *middle;
@@ -65,7 +65,7 @@ static void split_list(t_slist *head, t_slist **back)
     middle->next = NULL;
 }
 
-static void merge_sort(t_slist **head, t_options *opt)
+void merge_sort(t_slist **head, int ft_cmp(void *, void *))
 {
     t_slist *front;
     t_slist *back;
@@ -74,15 +74,27 @@ static void merge_sort(t_slist **head, t_options *opt)
     if (front == NULL || front->next == NULL)
         return ;
     split_list(front, &back);
-    merge_sort(&front, opt);
-    merge_sort(&back, opt);
-    *head = join_list(front, back, opt);
+    merge_sort(&front, ft_cmp);
+    merge_sort(&back, ft_cmp);
+    *head = join_list(front, back, ft_cmp);
 }
 
-void    process_sort(t_slist **list, t_options *opt)
+void    process_sort(t_slist **list, t_options *opt, t_bool isdir)
 {
-    (void)opt;
-    merge_sort(list, opt);
+    if (isdir == TRUE)
+    {
+        if (opt->flags & FLAG_t)
+            merge_sort(list, cmp_dir_time);
+        else
+            merge_sort(list, cmp_dir);
+    }
+    else
+    {
+        if (opt->flags & FLAG_t)
+            merge_sort(list, cmp_file_time);
+        else
+            merge_sort(list, cmp_file);
+    }
     if (opt->flags & FLAG_r)
         slist_reverse(list);
 }

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 13:40:48 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/11 13:10:42 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/13 15:07:30 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,5 @@ void    display_time(t_infos *infos, t_options *opt)
         display_hours(infos->time);
     else
         display_year(infos->time);
+    ft_putstr(" ");
 }

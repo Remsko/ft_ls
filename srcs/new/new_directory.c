@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 13:12:08 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/12 11:40:29 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 14:00:35 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,15 @@ t_directory    *new_directory(char *path)
 
     if ((new = (t_directory *)malloc(sizeof(t_directory))) != NULL)
     {
+        if (stat(path, &new->st) == -1)
+            error_stat(path);
         new->path = path;
         new->list = NULL;
         new->total = 0;
-        new->maxlink = 0;
-        new->maxsize = 0;
+        new->max.link = 0;
+        new->max.size = 0;
+        new->max.uid = 0;
+        new->max.gid = 0;
     }
     return (new);
 }

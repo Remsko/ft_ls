@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:28:28 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/12 20:34:15 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/13 20:05:50 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # define FLAG_r (1 << 3)
 # define FLAG_t (1 << 4)
 
-//# define UTILS_NO_R (1)
+# define UTILS_ARGS (1)
 //# define UTILS_PATH (1 << 1)
 //# define UTILS_NL (1 << 2)
 

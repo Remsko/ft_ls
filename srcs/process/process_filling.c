@@ -6,32 +6,80 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:51:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/12 20:44:36 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 13:45:36 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void process_filling(t_slist **list, t_options *opt, char **av)
+void setup_max(t_max *max, t_infos *infos)
 {
-    t_target *new;
+    int tmp;
+
+    if (max->link < infos->link)
+        max->link = infos->link;
+    if (max->size < infos->size)
+        max->size = infos->size;
+    if (infos->uid != NULL)
+        if (max->uid < (unsigned long)(tmp = ft_strlen(infos->uid)))
+            max->uid = tmp;
+    if (infos->gid != NULL)
+        if (max->gid < (unsigned long)(tmp = ft_strlen(infos->gid)))
+            max->gid = tmp;
+}
+
+void process_filling(t_slist **directories, t_options *opt, char **av)
+{
+    t_directory *directory;
+    t_slist *list;
+    t_slist *new;
+    t_target *tmp;
+    t_target *target;
 
     new = NULL;
-    (void)opt;
+    list = NULL;
     if (av == NULL || *av == NULL)
     {
-        new = new_target(NULL, ".");
-        slist_add_start(list, slist_new((void *)new));
+        if ((directory = new_directory(".")) == NULL)
+            error_malloc();
+        process_dir(directory, opt);
+        if ((new = slist_new((void *)directory)) == NULL)
+            error_malloc();
+        slist_add_start(directories, new);
     }
     else
     {
-        //if (*av != NULL && *(av + 1) != NULL)
-        //    opt->flags |= FLAG_PATH;
+        t_max max;
+
+        ft_bzero((void *)&max, sizeof(t_max));
+        list = NULL;
+        if (*av != NULL && *(av + 1) != NULL)
+            opt->utils |= UTILS_ARGS;
         while (*av != NULL)
         {
-            new = new_target(NULL, *av);
-            slist_add_start(list, slist_new((void *)new));
+            target = new_target(NULL, *av);
+            slist_add_start(&list, slist_new((void *)target));
+            setup_max(&max, target->infos);
             ++av;
+        }
+        max.link = ft_intlen(max.link);
+        max.size = ft_intlen(max.size);
+        process_sort(&list, opt, FALSE); 
+        while (list != NULL)
+        {
+            tmp = (t_target *)list->content;
+            if (tmp->infos->mode[0] == 'd')
+            {
+                if ((directory = new_directory(tmp->path)) == NULL)
+                    error_malloc();
+                process_dir(directory, opt);
+                if ((new = slist_new((void *)directory)) == NULL)
+                    error_malloc();
+                slist_add_start(directories, new);
+            }
+            else
+                display_file(tmp, &max, opt);
+            list = list->next;
         }
     }
 }

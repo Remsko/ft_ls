@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_target.c                                       :+:      :+:    :+:   */
+/*   cmp_file_time.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/27 21:33:11 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 13:08:41 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/09/15 11:29:15 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/09/15 14:04:30 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-t_target    *new_target(char *d_path, char *d_name)
+int     cmp_file_time(void *front, void *back)
 {
-    t_target    *new;
-    struct stat st;
+    t_target *target1;
+    t_target *target2;
 
-    if ((new = (t_target *)malloc(sizeof(t_target))) == NULL)
-        error_malloc();
-    new->name = ft_strdup(d_name); 
-    new->path = new_path(d_path, new->name);
-    if (stat(new->path, &st) == -1)
-        error_stat(new->path);
-    new->infos = new_infos(&st);
-    return (new);
+    target1 = (t_target *)front;
+    target2 = (t_target *)back;
+    if (target1->infos->mtime > target2->infos->mtime)
+        return (1);
+    else if (target1->infos->mtime < target2->infos->mtime)
+        return (-1);
+    else
+        return (ft_strcmp(target1->name, target2->name));
 }

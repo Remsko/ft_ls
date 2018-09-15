@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:58:58 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/12 21:19:43 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/13 20:29:32 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 static t_bool check_pointdir(char *name)
 {
-    if (name[0] == '.' && (name[1] == '\0' || (name[1] == '.' && name[2] == '\0')))
+    if (name[0] == '.' && (name[1] == '\0'
+        || (name[1] == '.' && name[2] == '\0')))
         return (TRUE);
     return (FALSE);
 }
 
-void display_list(t_slist *list, t_options *opt)
+void display_list(t_slist *list, t_max *max, t_options *opt)
 {
     t_directory *directory;
     t_slist *directories;
@@ -37,18 +38,15 @@ void display_list(t_slist *list, t_options *opt)
             {
                 if ((directory = new_directory(target->path)) == NULL)
                     error_malloc();
-                process_dir(directory);
+                process_dir(directory, opt);
                 if ((new = slist_new((void *)directory)) == NULL)
                     error_malloc();
                 slist_add_start(&directories, new);
             }
-            //if ((opt->flags & FLAG_NO_R) != 0)
-            //    display_file(target, opt);
         }
-        //else
-        display_file(target, opt);
+        display_file(target, max, opt);
         list = list->next;
     }
-    //if (opt->flags & FLAG_R || (opt->flags & FLAG_NO_R) == 0)
-        display_directory(directories, opt);
+    if (opt->flags & FLAG_R && (opt->utils |= UTILS_ARGS))
+        display_directories(directories, opt);
 }

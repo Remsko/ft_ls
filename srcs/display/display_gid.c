@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_target.c                                       :+:      :+:    :+:   */
+/*   display_gid.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/27 21:33:11 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 13:08:41 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/09/13 14:12:49 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/09/15 10:05:44 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-t_target    *new_target(char *d_path, char *d_name)
+void    display_gid(t_infos *infos, t_max *max, t_options *opt)
 {
-    t_target    *new;
-    struct stat st;
+    (void)opt;
+    int tmp;
 
-    if ((new = (t_target *)malloc(sizeof(t_target))) == NULL)
-        error_malloc();
-    new->name = ft_strdup(d_name); 
-    new->path = new_path(d_path, new->name);
-    if (stat(new->path, &st) == -1)
-        error_stat(new->path);
-    new->infos = new_infos(&st);
-    return (new);
+    ft_putstr(infos->gid);
+    if ((tmp = max->gid - ft_strlen(infos->gid)) > 0)
+        while (tmp-- > 0)
+            ft_putchar(' ');
+    ft_putstr("  ");
 }
