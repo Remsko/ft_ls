@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 13:13:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 16:52:21 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 17:20:15 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void    display_infos(struct stat *st, t_infos *infos, t_max *max, t_options *op
     display_link(max->link, (long)st->st_nlink);
     display_uid(max->uid, infos->uid);
     display_gid(max->gid, infos->gid);
-    if (st->st_mode & S_IFCHR)
+    if (S_ISCHR(st->st_mode))
         display_majorminor(st->st_rdev/*, infos->max_maj, infos->max_min*/);
     else
         display_size(max->size, (long)st->st_size);

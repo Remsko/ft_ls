@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 13:12:08 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 14:00:35 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/15 17:07:42 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_directory    *new_directory(char *path)
 
     if ((new = (t_directory *)malloc(sizeof(t_directory))) != NULL)
     {
-        if (stat(path, &new->st) == -1)
+        if (lstat(path, &new->st) == -1)
             error_stat(path);
         new->path = path;
         new->list = NULL;
