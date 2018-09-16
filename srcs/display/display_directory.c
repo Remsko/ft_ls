@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 13:48:36 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 17:03:57 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 17:55:34 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ static void display_total(int total)
 
 void display_directories(t_slist *directories, t_options *opt)
 {
-    t_slist     *tmp;
     t_directory *directory;
+    t_slist     *tmp;
 
-    tmp = directories;
     process_sort(&directories, opt, TRUE);
+    tmp = directories;
     while (tmp != NULL)
     {
         directory = (t_directory *)tmp->content;
