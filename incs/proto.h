@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:32:07 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 14:21:44 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 16:39:00 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ void		error_malloc();
 void		error_stat(char *path);
 
 /* NEW */
-
-//t_file *new_file(struct dirent *dirent);
 
 t_infos		*new_infos(struct stat *sd);
 

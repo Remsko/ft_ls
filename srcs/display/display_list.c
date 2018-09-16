@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:58:58 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 14:00:06 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 17:03:45 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void display_list(t_slist *list, t_max *max, t_options *opt)
         display_file(target, max, opt);
         list = list->next;
     }
-    // free target list
     opt->utils |= UTILS_ARGS;
     display_directories(directories, opt);
 }

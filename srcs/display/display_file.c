@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 12:59:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 14:01:26 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 17:04:49 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,4 @@ void    display_file(t_target *target, t_max *max, t_options *opt)
     if (opt->flags & FLAG_l && S_ISLNK(target->st.st_mode))
         display_symbolink(target->path);
     ft_putchar('\n');
-    // free target
 }

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:51:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 15:13:08 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 17:04:23 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,9 @@ static void	handle_args(t_slist **list, t_max *max, char **av)
 
 void		process_filling(t_slist **directories, t_options *opt, char **av)
 {
-	t_target	*tmp;
+	t_target	*target;
 	t_slist		*list;
+	t_slist		*memory;
 	t_max		max;
 
 	list = NULL;
@@ -60,14 +61,16 @@ void		process_filling(t_slist **directories, t_options *opt, char **av)
 			opt->utils |= UTILS_ARGS;
 		handle_args(&list, &max, av);
 		process_sort(&list, opt, FALSE);
+		memory = list;
 		while (list != NULL)
 		{
-			tmp = (t_target *)list->content;
-			if (S_ISDIR(tmp->st.st_mode))
-				add_directory(directories, tmp->path);
+			target = (t_target *)list->content;
+			if (S_ISDIR(target->st.st_mode))
+				add_directory(directories, target->path);
 			else
-				display_file(tmp, &max, opt);
+				display_file(target, &max, opt);
 			list = list->next;
 		}
+		slist_delete(&memory, utils_cleaner);
 	}
 }
