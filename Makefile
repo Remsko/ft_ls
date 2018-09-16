@@ -50,6 +50,8 @@ SRC_NAME =	main.c \
 			cmp/cmp_dir_time.c \
 			\
 			utils/utils_setup_max.c \
+			utils/utils_sweeper.c \
+			utils/utils_cleaner.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 

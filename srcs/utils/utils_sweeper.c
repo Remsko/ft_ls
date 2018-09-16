@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   infos_uid.c                                        :+:      :+:    :+:   */
+/*   utils_sweeper.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/26 20:36:46 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 12:54:17 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/09/16 11:58:46 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/09/16 12:14:34 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-char    *infos_uid(uid_t uid)
+void    utils_sweeper(void *content)
 {
-    struct passwd *pwd;
+    t_directory *byebye;
 
-    if ((pwd = getpwuid(uid)) == NULL)
-        return (NULL);
-    return (ft_strdup(pwd->pw_name));
+    byebye = (t_directory *)content;
+    slist_delete(&byebye->list, utils_cleaner);
+    ft_memdel((void **)&byebye->path);
+    ft_memdel((void **)&byebye);
 }

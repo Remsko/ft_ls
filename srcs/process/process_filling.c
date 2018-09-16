@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:51:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 18:49:48 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 12:57:25 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ void process_filling(t_slist **directories, t_options *opt, char **av)
         }
         max.link = ft_intlen(max.link);
         max.size = ft_intlen(max.size);
-        process_sort(&list, opt, FALSE); 
+        process_sort(&list, opt, FALSE);
         while (list != NULL)
         {
             tmp = (t_target *)list->content;
-            if (tmp->infos->mode[0] == 'd')
+            if (S_ISDIR(tmp->st.st_mode) && opt->flags & FLAG_R)
             {
                 if ((directory = new_directory(tmp->path)) == NULL)
                     error_malloc();
@@ -67,5 +67,6 @@ void process_filling(t_slist **directories, t_options *opt, char **av)
                 display_file(tmp, &max, opt);
             list = list->next;
         }
+        //slist_delete(&memory, utils_cleaner);
     }
 }

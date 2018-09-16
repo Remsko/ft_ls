@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:32:07 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 15:46:45 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 12:13:58 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,9 @@ int     cmp_dir_time(void *front, void *back);
 /* UTILS */
 
 void    utils_setup_max(struct stat *st, t_infos *infos, t_max *max);
+
+void    utils_cleaner(void *content);
+
+void    utils_sweeper(void *content);
 
 #endif
