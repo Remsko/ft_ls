@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 13:40:48 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 18:39:48 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 19:12:46 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,8 @@ static void	display_year(char *time)
 	write(1, time + 19, 5);
 }
 
-void		display_time(char *time, t_options *opt)
+void		display_time(char *time)
 {
-	(void)opt;
 	display_day(time);
 	if (time[0] == '0')
 		display_hours(time);

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:32:07 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 16:39:00 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 19:13:58 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ void		display_file(t_target *target, t_max *max, t_options *opt);
 
 void		display_directories(t_slist *directory, t_options *opt);
 
-void		display_infos(struct stat *st, t_infos *infos, t_max *max, t_options *opt);
+void		display_infos(struct stat *st, t_infos *infos, t_max *max);
 
 void		display_mode(char *mode);
 
-void		display_time(char *time, t_options *opt);
+void		display_time(char *time);
 
 void		display_link(long max, long link);
 

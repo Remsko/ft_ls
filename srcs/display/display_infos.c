@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 13:13:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 18:36:20 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 19:13:48 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ static void	display_majorminor(dev_t st_rdev)
 	ft_putstr(" ");
 }
 
-void		display_infos(struct stat *st, t_infos *infos,
-		t_max *max, t_options *opt)
+void		display_infos(struct stat *st, t_infos *infos, t_max *max)
 {
 	display_mode(infos->mode);
 	display_link(max->link, (long)st->st_nlink);
@@ -39,5 +38,5 @@ void		display_infos(struct stat *st, t_infos *infos,
 		display_majorminor(st->st_rdev);
 	else
 		display_size(max->size, (long)st->st_size);
-	display_time(infos->time, opt);
+	display_time(infos->time);
 }
