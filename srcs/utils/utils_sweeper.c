@@ -6,18 +6,18 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 11:58:46 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 17:05:19 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 18:19:00 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void    utils_sweeper(void *content)
+void	utils_sweeper(void *content)
 {
-    t_directory *byebye;
+	t_directory	*byebye;
 
-    byebye = (t_directory *)content;
-    slist_delete(&byebye->list, utils_cleaner);
+	byebye = (t_directory *)content;
+	slist_delete(&byebye->list, utils_cleaner);
 	ft_memdel((void **)&byebye->path);
-    ft_memdel((void **)&byebye);
+	ft_memdel((void **)&byebye);
 }

@@ -6,14 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 17:46:28 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 15:36:47 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 18:39:30 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void    display_mode(char *mode)
+void	display_mode(char *mode)
 {
-    ft_putstr(mode);
-    ft_putstr(" ");
+	ft_putstr(mode);
+	ft_putstr(" ");
 }

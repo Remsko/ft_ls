@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:51:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 17:55:28 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 18:53:30 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ static void	handle_args(t_slist **list, t_max *max, char **av)
 	t_target	*target;
 	t_slist		*new;
 
+	*list = NULL;
+	ft_bzero((void *)max, sizeof(t_max));
 	while (*av != NULL)
 	{
 		if ((target = new_target(NULL, *av)) != NULL)
@@ -51,8 +53,6 @@ void		process_filling(t_slist **directories, t_options *opt, char **av)
 	t_slist		*memory;
 	t_max		max;
 
-	list = NULL;
-	ft_bzero((void *)&max, sizeof(t_max));
 	if (av == NULL || *av == NULL)
 		add_directory(directories, ".");
 	else

@@ -6,33 +6,33 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 12:59:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 17:04:49 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 18:38:36 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static void display_symbolink(char *path)
+static void	display_symbolink(char *path)
 {
-    char    buf[256];
-    int     len;
+	char	buf[256];
+	int		len;
 
-    ft_putstr(" -> ");
-    if ((len = readlink(path, buf, 256)) != -1)
+	ft_putstr(" -> ");
+	if ((len = readlink(path, buf, 256)) != -1)
 		buf[len] = '\0';
-    ft_putstr(buf);
+	ft_putstr(buf);
 }
 
-void    display_file(t_target *target, t_max *max, t_options *opt)
+void		display_file(t_target *target, t_max *max, t_options *opt)
 {
-    opt->utils |= UTILS_PRINT;
-    if (opt->flags & FLAG_l)
-    {
-        infos_extended(target->path, &target->infos->mode[10]);
-        display_infos(&target->st, target->infos, max, opt);
-    }
-    ft_putstr(target->name);
-    if (opt->flags & FLAG_l && S_ISLNK(target->st.st_mode))
-        display_symbolink(target->path);
-    ft_putchar('\n');
+	opt->utils |= UTILS_PRINT;
+	if (opt->flags & FLAG_l)
+	{
+		infos_extended(target->path, &target->infos->mode[10]);
+		display_infos(&target->st, target->infos, max, opt);
+	}
+	ft_putstr(target->name);
+	if (opt->flags & FLAG_l && S_ISLNK(target->st.st_mode))
+		display_symbolink(target->path);
+	ft_putchar('\n');
 }
