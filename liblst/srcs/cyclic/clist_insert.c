@@ -6,13 +6,13 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 16:12:44 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/17 16:22:03 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 19:07:18 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "liblst.h"
 
-inline void clist_insert(t_clist *new, t_clist *prev, t_clist *next)
+inline void	clist_insert(t_clist *new, t_clist *prev, t_clist *next)
 {
 	if (new != NULL)
 	{
