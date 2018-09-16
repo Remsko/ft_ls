@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 12:59:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 19:31:23 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 14:01:26 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void    display_file(t_target *target, t_max *max, t_options *opt)
     opt->utils |= UTILS_PRINT;
     if (opt->flags & FLAG_l)
     {
-        //infos_extended(target->path, &infos->mode[10]);
+        infos_extended(target->path, &target->infos->mode[10]);
         display_infos(&target->st, target->infos, max, opt);
     }
     ft_putstr(target->name);

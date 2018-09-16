@@ -6,14 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/26 19:07:35 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 19:15:47 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 14:39:11 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void    error_stat(char *path)
+void	error_stat(char *path)
 {
-    ft_putstr("ft_ls: ");
-    perror(path);
+	ft_putstr("ft_ls: ");
+	perror(path);
 }

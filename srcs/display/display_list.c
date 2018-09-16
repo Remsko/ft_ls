@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:58:58 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 12:40:24 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 14:00:06 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void display_list(t_slist *list, t_max *max, t_options *opt)
             {
                 if ((directory = new_directory(target->path)) == NULL)
                     error_malloc();
-                process_dir(directory, opt);
                 if ((new = slist_new((void *)directory)) == NULL)
                     error_malloc();
                 slist_add_start(&directories, new);

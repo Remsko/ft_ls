@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:28:28 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/15 19:07:57 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 14:19:14 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "grp.h"
 # include "time.h"
 # include "sys/xattr.h"
-//# include "sys/acl.h"
+# include "sys/acl.h"
 # include "libft.h"
 # include "liblst.h"
 # include "types.h"
@@ -27,13 +27,16 @@
 
 # define SEC_6_MONTHS 15778800
 
-# define FLAG_l (1)
-# define FLAG_R (1 << 1)
-# define FLAG_a (1 << 2)
-# define FLAG_r (1 << 3)
-# define FLAG_t (1 << 4)
+# define FLAG_l 0x1
+# define FLAG_R 0x2
+# define FLAG_a 0x4
+# define FLAG_r 0x8
+# define FLAG_t 0x10
+# define FLAG_6 0x20
+# define FLAG_7 0x40
+# define FLAG_8 0x80
 
-# define UTILS_ARGS (1)
-# define UTILS_PRINT (1 << 1)
+# define UTILS_ARGS 0x1
+# define UTILS_PRINT 0x2
 
 #endif

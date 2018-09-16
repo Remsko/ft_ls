@@ -6,14 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 23:03:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/08/26 19:08:36 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/16 14:39:25 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void    error_malloc()
+void	error_malloc(void)
 {
-    ft_putstr("ft_ls: malloc failed\n");
-    exit(EXIT_FAILURE);
+	ft_putstr("ft_ls: malloc failed\n");
+	exit(EXIT_FAILURE);
 }
