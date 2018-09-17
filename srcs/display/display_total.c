@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_gid.c                                      :+:      :+:    :+:   */
+/*   display_total.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/13 14:12:49 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/17 13:13:24 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/09/17 17:29:02 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/09/17 17:29:36 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	display_gid(t_buffer *buf, long max, char *gid)
+void	display_total(t_buffer *buf, int total)
 {
-	long	tmp;
+	char	*arr;
 	int		len;
 
-	len = ft_strlen(gid);
-	buffer_loop(buf, gid, len);
-	tmp = max - (long)len;
-	while (tmp-- > 0)
-		buffer_loop(buf, " ", 1);
-	buffer_loop(buf, "  ", 2);
+	if ((arr = ft_itoa(total)) == NULL)
+		error_malloc();
+	len = ft_strlen(arr);
+	buffer_loop(buf, "total ", 6);
+	buffer_loop(buf, arr, len);
+	buffer_loop(buf, "\n", 1);
+	ft_memdel((void **)&arr);
 }

@@ -6,33 +6,33 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 13:40:48 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 19:12:46 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/17 13:24:41 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static void	display_day(char *time)
+inline static void	display_day(t_buffer *buf, char *time)
 {
-	write(1, time + 4, 7);
+	buffer_loop(buf, time + 4, 7);
 }
 
-static void	display_hours(char *time)
+inline static void	display_hours(t_buffer *buf, char *time)
 {
-	write(1, time + 11, 5);
+	buffer_loop(buf, time + 11, 5);
 }
 
-static void	display_year(char *time)
+inline static void	display_year(t_buffer *buf, char *time)
 {
-	write(1, time + 19, 5);
+	buffer_loop(buf, time + 19, 5);
 }
 
-void		display_time(char *time)
+void		display_time(t_buffer *buf, char *time)
 {
-	display_day(time);
+	display_day(buf, time);
 	if (time[0] == '0')
-		display_hours(time);
+		display_hours(buf, time);
 	else
-		display_year(time);
-	ft_putstr(" ");
+		display_year(buf, time);
+	buffer_loop(buf, " ", 1);
 }

@@ -6,23 +6,11 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:51:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 18:53:30 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/17 13:26:00 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-static void	add_directory(t_slist **directories, char *path)
-{
-	t_directory *directory;
-	t_slist		*new;
-
-	if ((directory = new_directory(path)) == NULL)
-		error_malloc();
-	if ((new = slist_new((void *)directory)) == NULL)
-		error_malloc();
-	slist_add_start(directories, new);
-}
 
 static void	handle_args(t_slist **list, t_max *max, char **av)
 {
@@ -46,7 +34,7 @@ static void	handle_args(t_slist **list, t_max *max, char **av)
 	max->size = ft_intlen(max->size);
 }
 
-void		process_filling(t_slist **directories, t_options *opt, char **av)
+void		process_filling(t_slist **directories, t_buffer *buf, t_options *opt, char **av)
 {
 	t_target	*target;
 	t_slist		*list;
@@ -54,7 +42,7 @@ void		process_filling(t_slist **directories, t_options *opt, char **av)
 	t_max		max;
 
 	if (av == NULL || *av == NULL)
-		add_directory(directories, ".");
+		utils_add_directory(directories, ".");
 	else
 	{
 		if (*av != NULL && *(av + 1) != NULL)
@@ -66,9 +54,9 @@ void		process_filling(t_slist **directories, t_options *opt, char **av)
 		{
 			target = (t_target *)list->content;
 			if (S_ISDIR(target->st.st_mode))
-				add_directory(directories, target->path);
+				utils_add_directory(directories, target->path);
 			else
-				display_file(target, &max, opt);
+				display_file(target, buf, &max, opt);
 			list = list->next;
 		}
 		slist_delete(&memory, utils_cleaner);

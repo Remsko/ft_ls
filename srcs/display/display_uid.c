@@ -6,19 +6,21 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 14:16:32 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 18:31:26 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/17 13:14:04 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	display_uid(long max, char *uid)
+void	display_uid(t_buffer *buf, long max, char *uid)
 {
 	long	tmp;
+	int		len;
 
-	ft_putstr(uid);
-	if ((tmp = max - ft_strlen(uid)) > 0)
-		while (tmp-- > 0)
-			ft_putchar(' ');
-	ft_putstr("  ");
+	len = ft_strlen(uid);
+	buffer_loop(buf, uid, len);
+	tmp = max - (long)len;
+	while (tmp-- > 0)
+		buffer_loop(buf, " ", 1);
+	buffer_loop(buf, "  ", 2);
 }

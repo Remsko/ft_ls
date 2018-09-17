@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_gid.c                                      :+:      :+:    :+:   */
+/*   utils_add_directory.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/13 14:12:49 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/17 13:13:24 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/09/17 09:20:10 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/09/17 09:20:46 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	display_gid(t_buffer *buf, long max, char *gid)
+void	utils_add_directory(t_slist **directories, char *path)
 {
-	long	tmp;
-	int		len;
+	t_directory *directory;
+	t_slist		*new;
 
-	len = ft_strlen(gid);
-	buffer_loop(buf, gid, len);
-	tmp = max - (long)len;
-	while (tmp-- > 0)
-		buffer_loop(buf, " ", 1);
-	buffer_loop(buf, "  ", 2);
+	if ((directory = new_directory(path)) == NULL)
+		error_malloc();
+	if ((new = slist_new((void *)directory)) == NULL)
+		error_malloc();
+	slist_add_start(directories, new);
 }

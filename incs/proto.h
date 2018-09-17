@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:32:07 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 19:13:58 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/17 17:31:20 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		parsing_arg(t_options *opt, char ***av_ptr);
 
 /* PROCESS */
 
-void		process_filling(t_slist **list, t_options *opt, char **av);
+void		process_filling(t_slist **list, t_buffer *buf, t_options *opt, char **av);
 
 void		process_dir(t_directory *directory, t_options *opt);
 
@@ -31,25 +31,29 @@ void		process_sort(t_slist **list, t_options *opt, t_bool isdir);
 
 /* DISPLAY */
 
-void		display_list(t_slist *list, t_max *max, t_options *opt);
+void		display_list(t_slist *list, t_buffer *buf, t_max *max, t_options *opt);
 
-void		display_file(t_target *target, t_max *max, t_options *opt);
+void		display_file(t_target *target, t_buffer *buf, t_max *max, t_options *opt);
 
-void		display_directories(t_slist *directory, t_options *opt);
+void		display_directories(t_slist *directory, t_buffer *buf, t_options *opt);
 
-void		display_infos(struct stat *st, t_infos *infos, t_max *max);
+void		display_infos(struct stat *st, t_infos *infos, t_buffer *buf, t_max *max);
 
-void		display_mode(char *mode);
+void		display_mode(t_buffer *buf, char *mode);
 
-void		display_time(char *time);
+void		display_time(t_buffer *buf, char *time);
 
-void		display_link(long max, long link);
+void		display_link(t_buffer *buf, long max, long link);
 
-void		display_size(long max, long size);
+void		display_size(t_buffer *buf, long max, long size);
 
-void		display_gid(long max, char *uid);
+void		display_gid(t_buffer *buf, long max, char *uid);
 
-void		display_uid(long max, char *uid);
+void		display_uid(t_buffer *buf, long max, char *uid);
+
+void	display_total(t_buffer *buf, int total);
+
+void	display_path(t_buffer *buf, char *path, t_options *opt);
 
 /* ERROR */
 
@@ -108,5 +112,7 @@ void		utils_setup_max(struct stat *st, t_infos *infos, t_max *max);
 void		utils_cleaner(void *content);
 
 void		utils_sweeper(void *content);
+
+void	utils_add_directory(t_slist **directories, char *path);
 
 #endif

@@ -6,19 +6,25 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 13:45:57 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 18:31:35 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/17 13:22:44 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	display_size(long max, long size)
+void	display_size(t_buffer *buf, long max, long size)
 {
+	char	*arr;
 	long	tmp;
+	int		len;
 
-	tmp = max - ft_intlen(size);
+	if ((arr = ft_itoa(size)) == NULL)
+		error_malloc();
+	len = ft_strlen(arr);
+	tmp = max - (long)len;
 	while (tmp-- > 0)
-		ft_putchar(' ');
-	ft_putnbr((int)size);
-	ft_putstr(" ");
+		buffer_loop(buf, " ", 1);
+	buffer_loop(buf, arr, len);
+	buffer_loop(buf, " ", 1);
+	ft_memdel((void **)&arr);
 }

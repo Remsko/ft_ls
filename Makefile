@@ -5,6 +5,7 @@ CFLAGS = -Wall -Werror -Wextra
 CPPFLAGS = -I./incs
 LIBFT = libft/libft.a
 LIBLST = liblst/liblst.a
+LIBBUF = liblst/libbuf.a
 
 SRC_PATH = srcs/
 SRC_NAME =	main.c \
@@ -26,6 +27,8 @@ SRC_NAME =	main.c \
 			display/display_gid.c \
 			display/display_uid.c \
 			display/display_mode.c \
+			display/display_path.c \
+			display/display_total.c \
 			\
 			error/error_usage.c \
 			error/error_malloc.c \
@@ -53,6 +56,7 @@ SRC_NAME =	main.c \
 			utils/utils_setup_max.c \
 			utils/utils_sweeper.c \
 			utils/utils_cleaner.c \
+			utils/utils_add_directory.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 
@@ -61,11 +65,14 @@ OBJ_NAME = $(SRC_NAME:.c=.o)
 
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
 
-CPPFLAGS = -Iincs -Ilibft -Iliblst/incs
-LDFLAGS = -Llibft -Lliblst
-LDLIBS = -lft -llst
+CPPFLAGS = -Iincs -Ilibft -Iliblst/incs -Ilibbuf/incs
+LDFLAGS = -Llibft -Lliblst -Llibbuf
+LDLIBS = -lft -llst -lbuf
 
 all: $(NAME)
+
+$(LIBBUF):
+	make -C libbuf
 
 $(LIBLST):
 	make -C liblst
@@ -83,19 +90,21 @@ $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)cmp
 	mkdir -p $(OBJ_PATH)utils
 
-$(NAME): $(LIBLST) $(LIBFT) $(OBJ_PATH) $(OBJ)
+$(NAME): $(LIBBUF) $(LIBLST) $(LIBFT) $(OBJ_PATH) $(OBJ)
 	$(CC) $(OBJ) $(LDFLAGS) $(LDLIBS)  -o $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
+	make clean -C libbuf
 	make clean -C liblst
 	make clean -C libft
 	$(RM) $(OBJ)
 	$(RM) $(OBJ_PATH)
 
 fclean: clean
+	$(RM) $(LIBBUF)
 	$(RM) $(LIBLST)
 	$(RM) $(LIBFT)
 	$(RM) $(NAME)
