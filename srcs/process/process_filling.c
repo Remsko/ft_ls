@@ -6,13 +6,13 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:51:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/17 13:26:00 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/19 12:42:57 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static void	handle_args(t_slist **list, t_max *max, char **av)
+static void	handle_args(t_slist **list, t_buffer *buf, t_max *max, char **av)
 {
 	t_target	*target;
 	t_slist		*new;
@@ -21,7 +21,7 @@ static void	handle_args(t_slist **list, t_max *max, char **av)
 	ft_bzero((void *)max, sizeof(t_max));
 	while (*av != NULL)
 	{
-		if ((target = new_target(NULL, *av)) != NULL)
+		if ((target = new_target(buf, NULL, *av)) != NULL)
 		{
 			if ((new = slist_new((void *)target)) == NULL)
 				error_malloc();
@@ -42,19 +42,19 @@ void		process_filling(t_slist **directories, t_buffer *buf, t_options *opt, char
 	t_max		max;
 
 	if (av == NULL || *av == NULL)
-		utils_add_directory(directories, ".");
+		utils_add_directory(directories, buf, ".");
 	else
 	{
 		if (*av != NULL && *(av + 1) != NULL)
 			opt->utils |= UTILS_ARGS;
-		handle_args(&list, &max, av);
+		handle_args(&list, buf, &max, av);
 		process_sort(&list, opt, FALSE);
 		memory = list;
 		while (list != NULL)
 		{
 			target = (t_target *)list->content;
-			if (S_ISDIR(target->st.st_mode))
-				utils_add_directory(directories, target->path);
+			if (S_ISDIR(target->st.st_mode) || S_ISLNK(target->st.st_mode))
+				utils_add_directory(directories, buf, target->path);
 			else
 				display_file(target, buf, &max, opt);
 			list = list->next;

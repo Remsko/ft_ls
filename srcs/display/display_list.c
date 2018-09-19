@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:58:58 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/17 13:15:05 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/19 12:45:42 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 static t_bool	check_pointdir(char *name)
 {
-	if (name[0] == '.' && (name[1] == '\0'
-				|| (name[1] == '.' && name[2] == '\0')))
+	static const char point = '.';
+	static const char zero = '\0';
+
+	if (name[0] == point && (name[1] == zero
+				|| (name[1] == point && name[2] == zero)))
 		return (TRUE);
 	return (FALSE);
 }
@@ -29,10 +32,10 @@ void			display_list(t_slist *list, t_buffer *buf, t_max *max, t_options *opt)
 	while (list != NULL)
 	{
 		target = (t_target *)list->content;
-		if (S_ISDIR(target->st.st_mode) && opt->flags & FLAG_R)
+		if (S_ISDIR(target->st.st_mode) || S_ISLNK(target->st.st_mode))
 		{
-			if (check_pointdir(target->name) == FALSE)
-			utils_add_directory(&directories, target->path);
+			if (check_pointdir(target->name) == FALSE && opt->flags & FLAG_R)
+				utils_add_directory(&directories, buf, target->path);
 		}
 		display_file(target, buf, max, opt);
 		list = list->next;

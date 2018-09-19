@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:32:07 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/17 17:31:20 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/18 13:16:38 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		parsing_arg(t_options *opt, char ***av_ptr);
 
 void		process_filling(t_slist **list, t_buffer *buf, t_options *opt, char **av);
 
-void		process_dir(t_directory *directory, t_options *opt);
+void		process_dir(t_directory *directory, t_buffer *buf, t_options *opt);
 
 void		process_sort(t_slist **list, t_options *opt, t_bool isdir);
 
@@ -59,19 +59,19 @@ void	display_path(t_buffer *buf, char *path, t_options *opt);
 
 void		error_usage(char c);
 
-void		error_directory(char *dir);
+void		error_directory(t_buffer *buf, char *dir);
 
 void		error_malloc();
 
-void		error_stat(char *path);
+void		error_stat(t_buffer *buf, char *path);
 
 /* NEW */
 
 t_infos		*new_infos(struct stat *sd);
 
-t_target	*new_target(char *d_path, char *d_name);
+t_target	*new_target(t_buffer *buf, char *d_path, char *d_name);
 
-t_directory	*new_directory(char *path);
+t_directory	*new_directory(t_buffer *buf, char *path);
 
 char		*new_path(char *start, char *end);
 
@@ -113,6 +113,6 @@ void		utils_cleaner(void *content);
 
 void		utils_sweeper(void *content);
 
-void	utils_add_directory(t_slist **directories, char *path);
+void	utils_add_directory(t_slist **directories, t_buffer *buf, char *path);
 
 #endif
