@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 20:51:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/19 12:42:57 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/25 13:16:03 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ void		process_filling(t_slist **directories, t_buffer *buf, t_options *opt, char
 		while (list != NULL)
 		{
 			target = (t_target *)list->content;
-			if (S_ISDIR(target->st.st_mode) || S_ISLNK(target->st.st_mode))
+			if (S_ISDIR(target->st.st_mode) 
+				|| (S_ISLNK(target->st.st_mode) && (opt->flags & FLAG_l) == 0))
 				utils_add_directory(directories, buf, target->path);
 			else
 				display_file(target, buf, &max, opt);

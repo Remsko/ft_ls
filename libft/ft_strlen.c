@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 10:10:00 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/03/21 14:02:49 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/25 12:59:03 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *str)
 	size_t i;
 
 	i = 0;
+	if (str == NULL)
+		return (0);
 	while (*str++)
 		++i;
 	return (i);
