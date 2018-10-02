@@ -8,6 +8,8 @@ Available options:
   -R  Recursively list subdirectories encountered.
   -a  Include directory entries whose names begin with a dot.
   -r  Reverse the order of the sort.
-  -t  Sort by time. ..
+  -t  Sort by time.
 
--A  List all entries except for . and ...  Always set for the super-user.
+-A  List all entries except for "." and "..".
+-d	Directories are listed as plain files (not searched recursively).
+
