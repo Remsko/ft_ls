@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 22:11:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/10/01 18:25:37 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/10/02 10:23:56 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	process_dir(t_directory *directory, t_buffer *buf, t_options *opt)
 		return (error_directory(buf, directory->path));
 	while ((dirent = readdir(dir)) != NULL)
 	{
-		if (dirent->d_name[0] != '.' || opt->flags & FLAG_a)
+		if (utils_check_begindot(dirent->d_name, opt) == TRUE)
 		{
 			if ((target = new_target(buf, directory->path, dirent->d_name)) != NULL)
 			{

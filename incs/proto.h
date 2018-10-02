@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:32:07 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/18 13:16:38 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/10/02 10:19:10 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,10 @@ void		utils_cleaner(void *content);
 
 void		utils_sweeper(void *content);
 
-void	utils_add_directory(t_slist **directories, t_buffer *buf, char *path);
+void		utils_add_directory(t_slist **directories, t_buffer *buf, char *path);
+
+t_bool		utils_check_dotdir(char *name);
+
+t_bool		utils_check_begindot(char *name, t_options *opt);
 
 #endif

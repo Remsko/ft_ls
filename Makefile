@@ -57,6 +57,8 @@ SRC_NAME =	main.c \
 			utils/utils_sweeper.c \
 			utils/utils_cleaner.c \
 			utils/utils_add_directory.c \
+			utils/utils_check_dotdir.c \
+			utils/utils_check_begindot.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 

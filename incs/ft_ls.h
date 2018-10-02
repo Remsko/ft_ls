@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:28:28 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/17 12:37:03 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/10/02 10:09:03 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # define FLAG_a 0x4
 # define FLAG_r 0x8
 # define FLAG_t 0x10
-# define FLAG_6 0x20
+# define FLAG_A 0x20
 # define FLAG_7 0x40
 # define FLAG_8 0x80
 

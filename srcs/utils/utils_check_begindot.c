@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_options.c                                  :+:      :+:    :+:   */
+/*   utils_check_begindot.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/25 20:02:17 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/10/02 10:09:20 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/10/02 10:17:48 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/10/02 10:24:12 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	parsing_options(t_options *opt, char *av)
+inline t_bool   utils_check_begindot(char *name, t_options *opt)
 {
-	const char	*flags;
-	char		*tmp;
-
-	flags = "lRartA";
-	while (*(++av) != '\0')
-	{
-		if ((tmp = ft_strchr(flags, *av)) == NULL)
-			error_usage(*av);
-		opt->flags |= 1 << (tmp - flags);
-	}
+	if (name[0] != '.' || opt->flags & FLAG_a)
+		return (TRUE);
+	else if (opt->flags & FLAG_A && utils_check_dotdir(name) == FALSE)
+		return (TRUE);
+	return (FALSE);
 }
