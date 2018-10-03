@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:28:19 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/17 13:28:41 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/10/02 14:49:57 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ int		main(int ac, char **av)
 	t_options	opt;
 
 	buffer_clear(&buf);
+	ft_bzero((void *)&opt, (sizeof(t_options)));
 	directories = NULL;
-	opt.flags = 0;
-	opt.utils = 0;
 	++av;
 	if (ac > 1)
 		parsing_arg(&opt, &av);

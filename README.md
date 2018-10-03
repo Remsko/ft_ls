@@ -12,4 +12,7 @@ Available options:
 
 -A  List all entries except for "." and "..".
 -d	Directories are listed as plain files (not searched recursively).
-
+-g
+-o
+-p
+-f

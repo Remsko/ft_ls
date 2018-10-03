@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 16:16:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/16 14:47:20 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/10/02 18:01:04 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ static void		merge_sort(t_slist **head, int ft_cmp(void *, void *))
 
 void			process_sort(t_slist **list, t_options *opt, t_bool isdir)
 {
+	if (opt->flags & FLAG_f)
+		return ;
 	if (isdir == TRUE)
 	{
 		if (opt->flags & FLAG_t)

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 13:13:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/17 13:14:16 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/10/02 17:32:07 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,14 @@ static void	display_majorminor(t_buffer *buf, dev_t st_rdev)
 	buffer_loop(buf, " ", 1);
 }
 
-void		display_infos(struct stat *st, t_infos *infos, t_buffer *buf, t_max *max)
+void		display_infos(struct stat *st, t_infos *infos, t_buffer *buf, t_max *max, t_options *opt)
 {
 	display_mode(buf, infos->mode);
 	display_link(buf, max->link, (long)st->st_nlink);
-	display_uid(buf, max->uid, infos->uid);
-	display_gid(buf, max->gid, infos->gid);
+	if ((opt->flags & FLAG_g) == 0)
+		display_uid(buf, max->uid, infos->uid);
+	if ((opt->flags & FLAG_o) == 0)
+		display_gid(buf, max->gid, infos->gid);
 	if (S_ISCHR(st->st_mode))
 		display_majorminor(buf, st->st_rdev);
 	else
