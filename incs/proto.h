@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:32:07 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/10/02 17:34:17 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/10/08 13:42:32 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,18 @@ int			cmp_file(void *front, void *back);
 
 int			cmp_file_time(void *front, void *back);
 
+int         cmp_file_size(void *front, void *back);
+
+int         cmp_file_change_time(void *front, void *back);
+
 int			cmp_dir(void *front, void *back);
 
 int			cmp_dir_time(void *front, void *back);
+
+int         cmp_dir_size(void *front, void *back);
+
+int         cmp_dir_change_time(void *front, void *back);
+
 
 /* UTILS */
 

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 16:16:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/10/02 18:01:04 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/10/08 16:51:57 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,22 @@ void			process_sort(t_slist **list, t_options *opt, t_bool isdir)
 		return ;
 	if (isdir == TRUE)
 	{
-		if (opt->flags & FLAG_t)
+		if (opt->flags & FLAG_S)
+			merge_sort(list, cmp_dir_size);
+		else if (opt->flags & FLAG_c && (opt->flags & FLAG_l || opt->flags & FLAG_t))
+			merge_sort(list, cmp_dir_change_time);
+		else if (opt->flags & FLAG_t)
 			merge_sort(list, cmp_dir_time);
 		else
 			merge_sort(list, cmp_dir);
 	}
 	else
 	{
-		if (opt->flags & FLAG_t)
+		if (opt->flags & FLAG_S)
+			merge_sort(list, cmp_file_size);
+		else if (opt->flags & FLAG_c && (opt->flags & FLAG_l || opt->flags & FLAG_t))
+			merge_sort(list, cmp_file_change_time);
+		else if (opt->flags & FLAG_t)
 			merge_sort(list, cmp_file_time);
 		else
 			merge_sort(list, cmp_file);

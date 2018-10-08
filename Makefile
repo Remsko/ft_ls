@@ -50,8 +50,12 @@ SRC_NAME =	main.c \
 			\
 			cmp/cmp_file.c \
 			cmp/cmp_file_time.c \
+			cmp/cmp_file_change_time.c \
+			cmp/cmp_file_size.c \
 			cmp/cmp_dir.c \
 			cmp/cmp_dir_time.c \
+			cmp/cmp_dir_change_time.c \
+			cmp/cmp_dir_size.c \
 			\
 			utils/utils_setup_max.c \
 			utils/utils_sweeper.c \

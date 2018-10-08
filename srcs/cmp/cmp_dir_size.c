@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_options.c                                  :+:      :+:    :+:   */
+/*   cmp_dir_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/25 20:02:17 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/10/08 13:19:36 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/10/08 12:49:12 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/10/08 12:54:20 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	parsing_options(t_options *opt, char *av)
+int		cmp_dir_size(void *front, void *back)
 {
-	const char	*flags;
-	char		*tmp;
+	t_directory *dir1;
+	t_directory *dir2;
 
-	flags = "lRartAdgopfSc";
-	while (*(++av) != '\0')
-	{
-		if ((tmp = ft_strchr(flags, *av)) == NULL)
-			error_usage(*av);
-		opt->flags |= 1 << (tmp - flags);
-	}
+	dir2 = (t_directory *)back;
+	dir1 = (t_directory *)front;
+    if (dir1->st.st_blocks < dir2->st.st_blocks)
+		return (1);
+	else if (dir1->st.st_blocks > dir2->st.st_blocks)
+		return (-1);
+    return (ft_strcmp(dir1->path, dir2->path));
 }

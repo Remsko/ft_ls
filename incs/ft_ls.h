@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:28:28 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/10/02 18:02:19 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/10/08 16:52:20 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@
 # define FLAG_o 0x100
 # define FLAG_p 0x200
 # define FLAG_f 0x400
+# define FLAG_S 0x800
+# define FLAG_c 0x1000
 
 # define UTILS_ARGS 0x1
 # define UTILS_PRINT 0x2

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_options.c                                  :+:      :+:    :+:   */
+/*   cmp_file_size.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/25 20:02:17 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/10/08 13:19:36 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/10/08 12:49:04 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/10/08 13:08:33 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	parsing_options(t_options *opt, char *av)
+int		cmp_file_size(void *front, void *back)
 {
-	const char	*flags;
-	char		*tmp;
+	t_target *tar1;
+	t_target *tar2;
 
-	flags = "lRartAdgopfSc";
-	while (*(++av) != '\0')
-	{
-		if ((tmp = ft_strchr(flags, *av)) == NULL)
-			error_usage(*av);
-		opt->flags |= 1 << (tmp - flags);
-	}
+	tar1 = (t_target *)front;
+	tar2 = (t_target *)back;
+    if (tar1->st.st_blocks < tar2->st.st_blocks)
+		return (1);
+	else if (tar1->st.st_blocks > tar2->st.st_blocks)
+		return (-1);
+    return (ft_strcmp(tar1->path, tar2->path));
 }
