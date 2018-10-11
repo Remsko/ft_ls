@@ -6,15 +6,15 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/14 16:28:52 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/17 12:35:29 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/10/09 13:34:45 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBBUF_H
 # define LIBBUF_H
 
-# include "unistd.h"
-# include "string.h"
+# include <unistd.h>
+# include <string.h>
 
 # define BUFFER_SIZE 4096
 
