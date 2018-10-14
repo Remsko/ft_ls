@@ -13,7 +13,7 @@ SRC_NAME =	main.c \
 			parsing/parsing_arg.c \
 			parsing/parsing_options.c \
 			\
-			process/process_filling.c \
+			process/process_args.c \
 			process/process_dir.c \
 			process/process_sort.c \
 			\

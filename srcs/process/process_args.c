@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_filling.c                                  :+:      :+:    :+:   */
+/*   process_args.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/25 20:51:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/10/02 11:22:06 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/10/14 10:00:19 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/10/14 10:00:22 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	handle_args(t_slist **list, t_buffer *buf, t_max *max, char **av)
 	max->size = ft_intlen(max->size);
 }
 
-void		process_filling(t_slist **directories, t_buffer *buf, t_options *opt, char **av)
+void		process_args(t_slist **directories, t_buffer *buf, t_options *opt, char **av)
 {
 	t_target	*target;
 	t_slist		*list;

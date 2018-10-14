@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 13:28:19 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/10/08 16:52:42 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/10/14 10:01:38 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		main(int ac, char **av)
 	++av;
 	if (ac > 1)
 		parsing_arg(&opt, &av);
-	process_filling(&directories, &buf, &opt, av);
+	process_args(&directories, &buf, &opt, av);
 	display_directories(directories, &buf, &opt);
 	buffer_print(&buf);
 	return (0);

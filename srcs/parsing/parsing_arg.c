@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 19:46:20 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/10/02 17:21:00 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/10/14 10:07:50 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,7 @@ void	parsing_arg(t_options *opt, char ***av_ptr)
 		sort_args(av);
 	if (opt->flags & FLAG_g || opt->flags & FLAG_o)
 		opt->flags |= FLAG_l;
+	if (opt->flags & FLAG_f)
+		opt->flags |= FLAG_a;
 	*av_ptr = av;
 }
