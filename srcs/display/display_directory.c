@@ -6,13 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 13:48:36 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/10/14 09:57:42 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/10/14 11:07:03 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void		display_directories(t_slist *directories, t_buffer *buf, t_options *opt)
+void		display_directories(t_slist *directories, t_buffer *buf, \
+		t_options *opt)
 {
 	t_directory	*directory;
 	t_slist		*tmp;

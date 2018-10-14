@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 12:59:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/10/02 17:55:45 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/10/14 10:48:58 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,14 @@ static void	display_more(t_buffer *buf, t_options *opt, mode_t mode)
 			buffer_loop(buf, "/", 1);
 }
 
-void		display_file(t_target *target, t_buffer *buf, t_max *max, t_options *opt)
+void		display_file(t_target *target, t_buffer *buf, t_max *max, \
+		t_options *opt)
 {
 	opt->utils |= UTILS_PRINT;
 	if (opt->flags & FLAG_l)
 	{
 		infos_extended(target->path, &target->infos->mode[10]);
-		display_infos(&target->st, target->infos, buf, max, opt);
+		display_infos(target, buf, max, opt);
 	}
 	buffer_loop(buf, target->name, ft_strlen(target->name));
 	display_more(buf, opt, target->st.st_mode);

@@ -6,16 +6,16 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 19:46:20 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/10/14 10:15:03 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/10/14 11:00:28 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void sort_args(char **argv)
+void	sort_args(char **argv)
 {
-	char *tmp;
-	int i;
+	char	*tmp;
+	int		i;
 
 	if (argv != NULL && *argv != NULL)
 	{
@@ -35,7 +35,7 @@ void sort_args(char **argv)
 	}
 }
 
-void indirect_opt(t_options *opt)
+void	indirect_opt(t_options *opt)
 {
 	if (opt->flags & FLAG_g || opt->flags & FLAG_o)
 		opt->flags |= FLAG_l;
@@ -43,7 +43,7 @@ void indirect_opt(t_options *opt)
 		opt->flags |= FLAG_a;
 }
 
-void parsing_arg(t_options *opt, char ***av_ptr)
+void	parsing_arg(t_options *opt, char ***av_ptr)
 {
 	char **av;
 
@@ -51,13 +51,13 @@ void parsing_arg(t_options *opt, char ***av_ptr)
 	while (*av != NULL)
 	{
 		if (**av != '-' || *(*av + 1) == '\0')
-			break;
+			break ;
 		else if (*(*av + 1) == '-')
 		{
 			if (*(*av + 2) == '\0')
 			{
 				++av;
-				break;
+				break ;
 			}
 			error_usage('-');
 		}
@@ -65,6 +65,7 @@ void parsing_arg(t_options *opt, char ***av_ptr)
 		++av;
 	}
 	indirect_opt(opt);
-	sort_args(av);
+	if ((opt->flags & FLAG_f) == 0)
+		sort_args(av);
 	*av_ptr = av;
 }

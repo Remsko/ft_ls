@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 16:16:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/10/08 16:51:57 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/10/14 11:11:36 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,14 @@ static void		merge_sort(t_slist **head, int ft_cmp(void *, void *))
 	*head = join_list(front, back, ft_cmp);
 }
 
-void			process_sort(t_slist **list, t_options *opt, t_bool isdir)
+static void		chose_sort(t_slilst **list, t_options *opt, t_bool isdir)
 {
-	if (opt->flags & FLAG_f)
-		return ;
 	if (isdir == TRUE)
 	{
 		if (opt->flags & FLAG_S)
 			merge_sort(list, cmp_dir_size);
-		else if (opt->flags & FLAG_c && (opt->flags & FLAG_l || opt->flags & FLAG_t))
+		else if (opt->flags & FLAG_c && (opt->flags & FLAG_l \
+					|| opt->flags & FLAG_t))
 			merge_sort(list, cmp_dir_change_time);
 		else if (opt->flags & FLAG_t)
 			merge_sort(list, cmp_dir_time);
@@ -87,13 +86,21 @@ void			process_sort(t_slist **list, t_options *opt, t_bool isdir)
 	{
 		if (opt->flags & FLAG_S)
 			merge_sort(list, cmp_file_size);
-		else if (opt->flags & FLAG_c && (opt->flags & FLAG_l || opt->flags & FLAG_t))
+		else if (opt->flags & FLAG_c && (opt->flags & FLAG_l \
+					|| opt->flags & FLAG_t))
 			merge_sort(list, cmp_file_change_time);
 		else if (opt->flags & FLAG_t)
 			merge_sort(list, cmp_file_time);
 		else
 			merge_sort(list, cmp_file);
 	}
+}
+
+void			process_sort(t_slist **list, t_options *opt, t_bool isdir)
+{
+	if (opt->flags & FLAG_f)
+		return ;
+	chose_sort(list, opt, isdit);
 	if (opt->flags & FLAG_r)
 		slist_reverse(list);
 }

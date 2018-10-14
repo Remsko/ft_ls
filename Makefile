@@ -29,6 +29,7 @@ SRC_NAME =	main.c \
 			display/display_mode.c \
 			display/display_path.c \
 			display/display_total.c \
+			display/display_majorminor.c \
 			\
 			error/error_usage.c \
 			error/error_malloc.c \

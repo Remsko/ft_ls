@@ -6,13 +6,13 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/02 10:17:48 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/10/02 10:24:12 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/10/14 10:43:21 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-inline t_bool   utils_check_begindot(char *name, t_options *opt)
+inline t_bool	utils_check_begindot(char *name, t_options *opt)
 {
 	if (name[0] != '.' || opt->flags & FLAG_a)
 		return (TRUE);

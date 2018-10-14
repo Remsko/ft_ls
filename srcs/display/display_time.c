@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 13:40:48 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/17 13:24:41 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/10/14 10:40:33 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ inline static void	display_year(t_buffer *buf, char *time)
 	buffer_loop(buf, time + 19, 5);
 }
 
-void		display_time(t_buffer *buf, char *time)
+void				display_time(t_buffer *buf, char *time)
 {
 	display_day(buf, time);
 	if (time[0] == '0')
